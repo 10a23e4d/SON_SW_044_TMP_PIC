@@ -1,0 +1,221 @@
+
+ROM used:   15600/131056 (12%)
+            15600/131056 (12%) including unused fragments
+
+            3.0 Average locations per line
+            19.2 Average locations per statement
+
+RAM used:   349/3578 (10%) at main() level
+            580/3578 (16%) worst case
+
+Stack used: 7 worst case (6 in main + 1 for interrupts)
+Stack size: 31
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   60    31   4  son_tmp_main.c
+   76     0   0  cigs\system\son_tmp_main.h
+   98     0   0  cigs\system\son_tmp_config.h
+ 1487     0   0  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F67J94.h
+   21     0   0  cigs\hardware\mcu\timer.h
+  195     0   0  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stdint.h
+   28     0   0  cigs\hardware\mcu\uart.h
+   23     0   0  lib\communication\typedef_content.h
+   15     0   0  lib\communication\value_status.h
+   13     0   0  lib\tool\calc_tools.h
+  105     0   0  lib\tool\smf_queue.h
+  193     0   0  lib\tool\mmj_smf_memorymap.h
+  100     0   0  lib\device\mt25q.h
+   79     0   0  lib\communication\communication.h
+   31     0   0  lib\communication\frame.h
+   17     0   0  lib\communication\communication_driver.h
+   23     0   0  lib\communication\mission_tools.h
+   28     0   0  cigs\core\measurement\son_tmp_strain.h
+   39     0   0  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stdbool.h
+   41     0   0  cigs\core\measurement\son_tmp_temp.h
+   99     0   0  cigs\core\storage\son_tmp_flash.h
+  435     0   0  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\string.h
+   32     0   0  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stddef.h
+   28     0   0  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\ctype.h
+   41     0   0  cigs\core\logging\son_tmp_piclog.h
+   20     0   0  cigs\application\mission\son_tmp_excute_mission.h
+   16     0   0  cigs\application\mission\son_tmp_mode_mission.h
+   21     0   0  cigs\application\mission\son_tmp_mode_flash.h
+   45    16   2  cigs\hardware\mcu\src\timer.c
+   29     9   1  cigs\hardware\mcu\src\uart.c
+  587   290  36  lib\device\mt25q.c
+   60    15   2  lib\tool\calc_tools.c
+   83    41   5  lib\tool\smf_queue.c
+  127    64   8  lib\communication\communication.c
+   17     3   0  lib\communication\communication_driver.c
+   81    47   6  lib\communication\mission_tools.c
+  195    84  10  cigs\core\measurement\son_tmp_strain.c
+   90    29   4  cigs\core\measurement\son_tmp_temp.c
+   60    22   3  cigs\core\logging\son_tmp_piclog.c
+   99    35   4  cigs\core\storage\son_tmp_smf.c
+   21     0   0  cigs\core\storage\son_tmp_smf.h
+  157    71   9  cigs\core\storage\son_tmp_flash.c
+   91    33   4  cigs\application\mission\son_tmp_excute_mission.c
+   48    10   1  cigs\application\mission\son_tmp_mode_mission.c
+   49    11   1  cigs\application\mission\son_tmp_mode_flash.c
+----- -----
+ 5203   811 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     46   0    1             @delay_ms1
+0     82   0    1             @PUTCHAR_1_
+0     84   0    1             @PUTCHAR_2_
+0     96   0    6             @SPI_XFER_1
+0     96   0    6             @SPI_XFER_2
+0     58   0    0     90  2.8  TIMER1_isr
+0     66   0    0    192  2.6  setup_timer
+0     44   0    0             @const1456
+0     48   0    3             @PSTRINGC_950
+0     12   0    0             @const1461
+0     18   0    0     13  1.0  get_current_sec
+0     42   0    0     90  1.5  setup_uart_to_boss
+0     18   0    0             @const1462
+0     12   0    0             @const1463
+0     62   0    6    104  3.0  clear_receive_signal
+0     36   0    0             @MEMSET
+0    240   1   13    436  9.0  spi_xfer_select_stream
+0    564   2   28    794  9.8  spi_xfer_and_read_select_stream
+0    380   1   18    791 10.0  spi_xfer_two_datas_select_stream
+0     84   0    6             @WRITEBITA
+0    160   1    6    199  3.8  status_register
+0    868   3   25   2032  9.9  subsector_4kByte_erase
+0    536   2   28   1438  8.4  read_data_bytes
+0    900   3   29   2226 10.5  write_data_bytes
+0    200   1   25    353  5.6  is_connect
+0    108   0    4    201  7.9  calc_crc8
+0     26   0    0             @const1544
+0     26   0    0             @const1546
+0     24   0    0             @const1547
+0    506   2   25   1307  9.6  make_receive_command
+0     32   0    0             @const1551
+0     14   0    0             @const1552
+0    112   0    2             @PRINTF_X_950
+0     28   0    0             @const1564
+0    168   1    5    387  7.3  trim_receive_signal_header
+0     22   0    0             @const1566
+0     18   0    0             @const1567
+0    188   1    4    295  7.4  get_content_size
+0     36   0    0             @const1569
+0     54   0    4             @PSTRINGCN_950
+0    234   1    6    356  5.9  check_crc
+0     18   0    0             @const1574
+0     24   0    0             @const1575
+0     24   0    0             @const1576
+0    186   1    1    194  3.4  check_device_id
+0     34   0    0             @const1577
+0     24   0    0             @const1578
+0     24   0    0             @const1579
+0    150   0   25    457  5.9  transmit_command
+0    184   1    6    351  4.4  transmit
+0     14   0    0             @const1584
+0     22   0    0     33  1.3  transmit_ack
+0     36   0    0             @const1589
+0     56   0    0             @const1592
+0     26   0    0             @const1595
+0     26   0    0             @const1597
+0     28   0    0             @const1598
+0     56   0    0             @const1599
+0     34   0    0             @const1600
+0     88   0    0    290  1.8  io_init
+0     16   0    0             @const1601
+0     12   0    0             @const1602
+0     64   0    1    186  2.5  switch_channel
+0     90   0    4    187  3.6  read_adc_ltc2452
+0    836   3   82   2962  7.7  execute_measurement
+0     38   0    0             @const1608
+0     72   0    3             @DIV88
+0    170   1    2             @PRINTF_U_950
+0     32   0    0             @const1618
+0     70   0    0    119  1.5  temp_io_init
+0     22   0    0             @const1619
+0     12   0    0             @const1620
+0     32   0    0     37  1.3  read_adc_internal
+0    696   2   86   1740  8.9  execute_temp_measurement
+0     44   0    0             @const1624
+0     24   0    0             @const1631
+0    420   1   14   1146  6.5  piclog_make
+0     14   0    0             @const1634
+0    444   1    8    402  5.9  cigs_smf_prepare
+0     48   0    0             @const1645
+0    218   1   13             @DIV3232
+0    258   1   12             @PRINTF_L32U_950
+0     36   0    0             @const1651
+0    480   2   76    685  9.5  cigs_smf_copy
+0     34   0    0             @const1655
+0     24   0    0             @const1658
+0    116   0    0    133  3.0  cigs_smf_permit
+0     46   0    0             @const1659
+0    432   1   64   1100  4.3  misf_init
+0     28   0    0             @const1660
+0     22   0    0             @const1661
+0     26   0    0             @const1662
+0     20   0    0             @const1663
+0     24   0    0             @const1664
+0     34   0    0             @const1666
+0     46   0    0             @const1667
+0     12   0    0             @const1668
+0    176   1   64    490  3.8  make_flash_data_table
+0    118   0   64    114  2.4  write_misf_address_area
+0     24   0    0             @const1673
+0     36   0    0             @const1674
+0     36   0    0             @const1675
+0     36   0    0             @const1676
+0     24   0    0             @const1677
+0     32   0    0             @const1678
+0     34   0    0             @const1679
+0    232   1    1    439  4.5  process_boss_command
+0     28   0    0             @const1682
+0     26   0    0             @const1683
+0     48   0    3    116  2.3  execute_mission_command
+0    202   1    4    435  3.4  execute_mission_sequence
+0     34   0    0             @const1685
+0     24   0    0             @const1690
+0     36   0    0             @const1691
+0     38   0    0     70  1.5  prepare_smf_transfer
+0     32   0    0             @const1692
+0     38   0    0     70  1.5  execute_smf_transfer
+0     32   0    0             @const1693
+0     58   0    0    123  2.0  permit_smf_transfer
+0     30   0    0             @const1694
+0     42   0    0             @const1695
+0   1232   4   14    987  6.7  MAIN
+0     70   0    0             @const1699
+0     46   0    0             @const1700
+0     38   0    0             @const1701
+0     10   0    0             @const1702
+0     10   0    0             @const1703
+0     38   0    0             @const1705
+0     30   0    0             @const1706
+0     32   0    0             @const1708
+0     64   0    0             @const1710
+0     12   0    0             @const1712
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               43
+    Statements              811
+    Comments                1401
+    Volume (V)              43215
+    Difficulty (D)          210.4
+    Effort to implement (E) 9090269
+    Time to implement (T)   140 hours, 17 minutes
+    Est Delivered Bugs (B)  15
+    Cyclomatic Complexity   74
+    Maintainability (MI)    115
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00004     6  0  
+00006-00006     0  2  
+00008-000BC   182  0  
+000BE-0FFFE  15412  49934  
+10000-1FFEE     0  65520  
+
+
+

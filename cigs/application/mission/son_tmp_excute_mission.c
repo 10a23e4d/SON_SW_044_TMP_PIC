@@ -2,9 +2,9 @@
 #include "../../hardware/mcu/uart.h"
 #include "../../hardware/mcu/timer.h"
 #include "../../core/logging/son_tmp_piclog.h"
-
 #include "son_tmp_mode_mission.h"
 #include "son_tmp_mode_flash.h"
+#include "../../../lib/communication/communication.h" // transmit_ack() 等を使うために追加
 
 // ============================================================================
 // グローバル変数の実体定義
@@ -20,19 +20,15 @@ void cigs_system_init(void)
 {
     fprintf(PC, "CIGS System Initialize Start\r\n");
 
-    // 全体の割り込みを一旦無効にして初期化を安全に行う
     disable_interrupts(GLOBAL);
 
-    // タイマー・通信モジュールの初期化
     setup_timer();
     setup_uart_to_boss();
 
-    // システム変数の初期化
     status = 0;
     is_use_smf_req_in_mission = 0;
 
-    // 起動ログを保存
-    piclog_make(PICLOG_STARTUP, 0x00);
+    piclog_make(0x00, 0x00); // PICLOG_STARTUP
 
     fprintf(PC, "CIGS System Initialize Complete\r\n");
 }
@@ -46,30 +42,28 @@ static void process_boss_command(uint8_t cmd)
         case CMD_MISSION_START:
         {
             status = EXECUTING_MISSION;
-            // TODO: mode_mission 側のミッション実行関数を呼び出す
-            // execute_mission_sequence();
+            execute_mission_sequence();
             break;
         }
         case CMD_SMF_PREPARE:
         {
             status = COPYING;
-            // TODO: mode_flash 側のSMF転送準備処理を呼び出す
+            prepare_smf_transfer();
             break;
         }
         case REQ_SMF_COPY:
         {
-            // TODO: mode_flash 側のデータ転送処理を呼び出す
+            execute_smf_transfer();
             break;
         }
         case CMD_SMF_PERMIT:
         {
-            // TODO: mode_flash 側の転送許可処理を呼び出す
+            permit_smf_transfer();
             break;
         }
         case REQ_POWER_OFF:
         {
-            // 電源OFF要求処理
-            status = IDLE;
+            status = 0;
             break;
         }
         default:
@@ -80,25 +74,17 @@ static void process_boss_command(uint8_t cmd)
     }
 }
 
-void cigs_execute_mission_loop(void)
+// 変更: 解析済みのコマンドを引数として受け取る
+void execute_mission_command(Command* cmd)
 {
-    // 受信バッファにデータがあるか確認
-    if (boss_receive_buffer_size > 0)
-    {
-        // 最初の1バイトをコマンドとして解釈
-        uint8_t cmd = boss_receive_buffer[0];
+    uint8_t frame_id = cmd->frame_id;
 
-        // コマンド受信ログを記録 (0x10 は仮のコマンド受信イベントID)
-        piclog_make(0x10, cmd);
+    // 1. コマンドを受理したことをBOSS(シミュレータ)に知らせる
+    transmit_ack();
 
-        // コマンドに応じた処理へ分岐
-        process_boss_command(cmd);
+    // 2. コマンド受信ログを記録 (0x10 は仮のコマンド受信イベントID)
+    piclog_make(0x10, frame_id);
 
-        // 処理完了後、バッファをクリアして次の受信に備える
-        boss_receive_buffer_size = 0;
-        memset((void*)boss_receive_buffer, 0, RECEIVE_BUFFER_MAX);
-    }
-
-    // ステータスに応じたバックグラウンド処理があればここに記述
-    // if (status == EXECUTING_MISSION) { ... }
+    // 3. コマンドに応じた処理(計測開始など)へ分岐
+    process_boss_command(frame_id);
 }
