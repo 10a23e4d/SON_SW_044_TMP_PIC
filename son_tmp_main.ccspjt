@@ -62,9 +62,20 @@ Fixed=
 [Opened Files]
 1=son_tmp_main.c
 t1=1
-2=cigs\application\mission\son_tmp_mode_mission.c
+Count=3
+2=cigs\core\measurement\son_tmp_strain.c
 t2=1
-Count=2
+3=cigs\application\mission\son_tmp_mode_flash.c
+t3=1
+4=cigs\application\mission\son_tmp_mode_flash.c
+t4=61
+
+[ProjectLog]
+Days=1
+D1=04-03-2026
+D1_L=2
+D1_L1=[55141]Started Editing.
+D1_L2=[55441]Stopped Editing.
 [build\son_tmp_main.c]
 Type=4
 [Units]

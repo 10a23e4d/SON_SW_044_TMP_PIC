@@ -83,6 +83,104 @@ uint16_t read_adc_ltc2452()
 // 計測シーケンスとFlash保存処理
 // ============================================================================
 
+void execute_measurement(uint8_t mode, uint8_t hw_channel, uint8_t samplingRate)
+{
+    fprintf(PC, "Start Synchronized Measurement (Mode:%u, HW_Ch:%u)\r\n", mode, hw_channel);
+
+    // ========================================================
+    // 1. バッファとパケット番号の初期化 (ひずみ用 & 温度用)
+    // ========================================================
+    // --- ひずみ用 (パケット 1 〜 18) ---
+    uint16_t strain_packet_num = 1;
+    uint8_t strain_data_idx = 0;
+    uint8_t strain_buffer[PACKET_SIZE];
+    memset(strain_buffer, 0, PACKET_SIZE);
+
+    // --- 温度用 (パケット 19 〜 32) ---
+    uint16_t temp_packet_num = 19;
+    uint8_t temp_data_idx = 0;
+    uint8_t temp_buffer[PACKET_SIZE];
+    memset(temp_buffer, 0, PACKET_SIZE);
+
+
+    // ========================================================
+    // 2. メインサンプリングループ (固定 555回)
+    // ========================================================
+    for (uint16_t step = 0; step < 555; step++)
+    {
+        // ----------------------------------------------------
+        // [A] ひずみのADC読み取りとバッファ格納
+        // ----------------------------------------------------
+        // TODO: ここでADC(LTC2452等)からひずみデータを読み取る
+        uint16_t strain_val = 0xFFFF; // ダミーデータ
+
+        // バッファに格納 (ビッグエンディアンかリトルエンディアンかはシステム仕様に合わせる)
+        strain_buffer[strain_data_idx++] = (strain_val >> 8) & 0xFF;
+        strain_buffer[strain_data_idx++] = strain_val & 0xFF;
+
+        // バッファが満杯になったらFlashへ書き込み、次のパケットへ
+        if (strain_data_idx >= PACKET_SIZE) // ヘッダ等がある場合はペイロードサイズで判定
+        {
+            // TODO: Flashへ strain_buffer を書き込む (パケット番号: strain_packet_num)
+            // write_to_flash(strain_packet_num, strain_buffer);
+
+            strain_packet_num++;
+            strain_data_idx = 0;
+            memset(strain_buffer, 0, PACKET_SIZE);
+        }
+
+        // ----------------------------------------------------
+        // [B] 温度のADC(またはセンサ)読み取りとバッファ格納
+        // ----------------------------------------------------
+        // TODO: ここで温度データを読み取る
+        uint16_t temp_val = 0xEEEE; // ダミーデータ
+
+        temp_buffer[temp_data_idx++] = (temp_val >> 8) & 0xFF;
+        temp_buffer[temp_data_idx++] = temp_val & 0xFF;
+
+        // バッファが満杯になったらFlashへ書き込み、次のパケットへ
+        if (temp_data_idx >= PACKET_SIZE)
+        {
+            // TODO: Flashへ temp_buffer を書き込む (パケット番号: temp_packet_num)
+            // write_to_flash(temp_packet_num, temp_buffer);
+
+            temp_packet_num++;
+            temp_data_idx = 0;
+            memset(temp_buffer, 0, PACKET_SIZE);
+        }
+
+        // ----------------------------------------------------
+        // [C] サンプリングレートに応じたウェイト
+        // ----------------------------------------------------
+        switch (samplingRate)
+        {
+            case SAMP_RATE_10MS:   delay_ms(10);   break;
+            case SAMP_RATE_50MS:   delay_ms(50);   break;
+            case SAMP_RATE_100MS:  delay_ms(100);  break;
+            case SAMP_RATE_500MS:  delay_ms(500);  break;
+            case SAMP_RATE_1000MS: delay_ms(1000); break;
+            case SAMP_RATE_5000MS: delay_ms(5000); break;
+            default:               delay_ms(10);   break; // フェールセーフ
+        }
+    }
+
+    // ========================================================
+    // 3. ループ終了後、端数（満杯にならなかった分）をFlashへ保存
+    // ========================================================
+    if (strain_data_idx > 0 && strain_packet_num <= 18)
+    {
+        // write_to_flash(strain_packet_num, strain_buffer);
+    }
+
+    if (temp_data_idx > 0 && temp_packet_num <= 32)
+    {
+        // write_to_flash(temp_packet_num, temp_buffer);
+    }
+
+    fprintf(PC, "End Synchronized Measurement Sequence\r\n");
+}
+
+/*
 void execute_measurement(uint8_t mode, uint8_t channel, uint8_t samplingRate)
 {
     PacketBuffer packet;
@@ -175,7 +273,19 @@ void execute_measurement(uint8_t mode, uint8_t channel, uint8_t samplingRate)
         }
 
         // Sampling Rate に応じたウェイト処理
-        delay_ms(1);
+        switch (samplingRate)
+        {
+            case SAMP_RATE_10MS:   delay_ms(10);   break;
+            case SAMP_RATE_50MS:   delay_ms(50);   break;
+            case SAMP_RATE_100MS:  delay_ms(100);  break;
+            case SAMP_RATE_500MS:  delay_ms(500);  break;
+            case SAMP_RATE_1000MS: delay_ms(1000); break;
+            case SAMP_RATE_5000MS: delay_ms(5000); break;
+            default:
+                delay_ms(10); // 指定外のIDが来た場合は安全のため最速(10ms)で回す
+                break;
+        }
+
     }
 
     // 4. IV計測が完了したら、引き続いて温度計測シーケンスを呼び出す
@@ -192,3 +302,4 @@ void execute_measurement(uint8_t mode, uint8_t channel, uint8_t samplingRate)
     // フラッシュのアドレス管理領域をまとめて更新
     write_misf_address_area();
 }
+*/

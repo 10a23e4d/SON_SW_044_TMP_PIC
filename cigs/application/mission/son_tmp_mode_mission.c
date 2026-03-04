@@ -1,5 +1,5 @@
 #include "son_tmp_mode_mission.h"
-#include "../../core/measurement/son_tmp_strain.h"
+#include "../../core/measurement/son_tmp_strain.h" // ※環境に合わせて son_tmp_strain.h 等に変更してください
 #include "../../core/logging/son_tmp_piclog.h"
 #include "son_tmp_excute_mission.h"
 
@@ -7,41 +7,42 @@
 // ミッション実行シーケンス
 // ============================================================================
 
-void execute_mission_sequence(void)
+void execute_mission_sequence(Command* cmd)
 {
     fprintf(PC, "--- Mission Sequence Start ---\r\n");
 
-    // ミッション開始ログの記録 (イベントID: 0x11, パラメータ: 0x00 と仮定)
+    // ミッション開始ログの記録
     piclog_make(0x11, 0x00);
 
-    // アナログスイッチ(MAX4734EUB+)で選択可能なチャンネル (0〜3)
-    uint8_t num_channels = 4;
+    // =========================================================
+    // シミュレータから送られたペイロードからパラメータを読み取る
+    // content[0] : 0x10 (CMD_MISSION_START)
+    // content[1] : チャンネル指定 (1〜4)
+    // content[2] : サンプリングレート指定 (ID)
+    // =========================================================
+    uint8_t rx_channel = cmd->content[1];
+    uint8_t samplingRate = cmd->content[2];
+    uint8_t mode = 0x01; // 通常計測モード(固定)
 
-    // サンプリングレート設定 (例として 0x01 を指定)
-    uint8_t samplingRate = 0x01;
-
-    // 現在の動作モード (例として通常計測モード: 0x01 を指定)
-    uint8_t mode = 0x01;
-
-    // 全チャンネルを順番に計測するシナリオ
-    for (uint8_t ch = 0; ch < num_channels; ch++)
+    // BOSSから指定されたCH(1〜4)を、マイコン内部のスイッチ番号(0〜3)に変換
+    uint8_t hw_channel = 0;
+    if (rx_channel >= 1 && rx_channel <= 4)
     {
-        fprintf(PC, "Executing Channel: %u\r\n", ch);
-
-        // iv.c 側の計測処理を呼び出し（内部で温度計測も連続して呼ばれる）
-        execute_measurement(mode, ch, samplingRate);
-
-        // チャンネル切り替え間のインターバル
-        delay_ms(100);
+        hw_channel = rx_channel - 1;
+    }
+    else
+    {
+        fprintf(PC, "[WARN] Invalid Channel %u. Forced to CH 1 (HW:0).\r\n", rx_channel);
+        hw_channel = 0;
     }
 
-    // ミッション終了ログの記録 (イベントID: 0x12, パラメータ: 0x00 と仮定)
+    fprintf(PC, "Executing Target -> BOSS_CH: %u (HW_CH: %u), SamplingRate: 0x%02X\r\n", rx_channel, hw_channel, samplingRate);
+
+    // ★ forループを廃止し、指定された1つのチャンネルだけを計測(固定554回)する
+    execute_measurement(mode, hw_channel, samplingRate);
+
+    // ミッション終了ログの記録
     piclog_make(0x12, 0x00);
-
-    // ミッション完了後、ステータスをIDLEに戻す
-    //status = IDLE;
-
-    // TODO: 必要であればここでBOSSへ完了応答(RES_MISSION_DONE)を送信する処理を追加
 
     fprintf(PC, "--- Mission Sequence Complete ---\r\n");
 }

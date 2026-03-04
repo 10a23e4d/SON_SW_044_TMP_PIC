@@ -16,4 +16,6 @@ void cigs_system_init(void);
 // バッファを直接読むのではなく、解析済みのCommandを引数で受け取るように変更
 int1 execute_command(Command* cmd);
 
+void execute_mission_sequence(Command* cmd);
+
 #endif // SON_TMP_EXCUTE_MISSION_H

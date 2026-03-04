@@ -52,10 +52,18 @@
 // ==========================================
 #define CMD_MISSION_START       0x10
 #define RES_MISSION_DONE        0x11
+#define CMD_FLASH_DUMP          0x12
 #define CMD_SMF_PREPARE         0x20
 #define REQ_SMF_COPY            0x21
 #define CMD_SMF_PERMIT          0x22
 #define REQ_POWER_OFF           0x30
+
+#define SAMP_RATE_10MS          0x01  // 0.01秒
+#define SAMP_RATE_50MS          0x02  // 0.05秒
+#define SAMP_RATE_100MS         0x03  // 0.10秒
+#define SAMP_RATE_500MS         0x04  // 0.50秒
+#define SAMP_RATE_1000MS        0x05  // 1.00秒
+#define SAMP_RATE_5000MS        0x06  // 5.00秒
 
 // ==========================================
 // 3. データフォーマット・バッファ定義

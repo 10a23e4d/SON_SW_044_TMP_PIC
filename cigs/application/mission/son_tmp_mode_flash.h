@@ -17,4 +17,7 @@ void execute_smf_transfer(void);
 // SMF転送完了許可 (CMD_SMF_PERMIT 受信時に実行)
 void permit_smf_transfer(void);
 
+// Mis Flash読み出し (CMD_MIS_FLASH_READ 受信時に実行)
+void execute_flash_dump(void);
+
 #endif // son_tmp_MODE_FLASH_H
