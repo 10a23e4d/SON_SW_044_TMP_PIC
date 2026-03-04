@@ -1,9 +1,9 @@
-D G "__PCH__" 0 171 ""5.104""
-D G "__DEVICE__" 0 171 "6794"
-D G "__DATE__" 0 171 ""4-Mar-26""
-D G "__TIME__" 0 171 ""14:23:00""
-D G "_UNICODE" 0 171 ""?""
-D G "__EVAL" 0 171 ""?""
+D G "__PCH__" 0 106 ""5.104""
+D G "__DEVICE__" 0 106 "6794"
+D G "__DATE__" 0 106 ""4-Mar-26""
+D G "__TIME__" 0 106 ""14:41:26""
+D G "_UNICODE" 0 106 ""?""
+D G "__EVAL" 0 106 ""?""
 D G "son_tmp_MAIN_H" 1 2 ""
 D G "son_tmp_CONFIG_H" 2 2 ""
 D G "SELF_DEVICE_ID" 2 4 "CIGS_PIC"
@@ -3341,13 +3341,14 @@ C L "cigs_system_init" 42 10 1 "FUNCTION"
 F N "process_boss_command" 42 36 ""
 V L "cmd" 42 36 "uint8_t" `1681 
 F G "process_boss_command" 42 37 "void(uint8_t cmd)" `1680 
+F N "execute_command" 42 77 ""
+V L "cmd" 42 77 " *" `1685 
+F G "execute_command" 42 78 "int8( * cmd)" `1449  "共通ライブラリの解釈による仮のID (00=通常コマンド, 01=Ping疎通確認)"
+V L "lib_frame_id" 42 80 "uint8_t" `1684 
 C L "execute_command" 42 10 1 "FUNCTION"
-F N "execute_command" 42 78 ""
-V L "cmd" 42 78 " *" `1685 
-F G "execute_command" 42 79 "int8( * cmd)" `1449 
-V L "frame_id" 42 80 "uint8_t" `1684 
 C L "execute_command" 42 10 1 "FUNCTION"
-C L "execute_command" 42 10 1 "FUNCTION"
+C L "execute_command" 42 10 2 "FUNCTION"
+V L "real_cmd" 42 94 "uint8_t" `1686 
 C L "execute_command" 42 10 1 "FUNCTION"
 C L "execute_command" 42 10 1 "FUNCTION"
 C L "execute_mission_sequence" 26 15 1 "FUNCTION"
@@ -3359,13 +3360,13 @@ F N "execute_mission_sequence" 43 10 ""
 F G "execute_mission_sequence" 43 11 "void()" `1451 
 C L "execute_mission_sequence" 43 7 1 "FUNCTION"
 C L "execute_mission_sequence" 43 7 1 "FUNCTION"
-V L "num_channels" 43 18 "uint8_t" `1686 
+V L "num_channels" 43 18 "uint8_t" `1688 
 C L "execute_mission_sequence" 43 7 1 "FUNCTION"
-V L "samplingRate" 43 21 "uint8_t" `1687 
+V L "samplingRate" 43 21 "uint8_t" `1689 
 C L "execute_mission_sequence" 43 7 1 "FUNCTION"
-V L "mode" 43 24 "uint8_t" `1688 
+V L "mode" 43 24 "uint8_t" `1690 
 C L "execute_mission_sequence" 43 7 1 "FUNCTION"
-V L "ch" 43 27 "uint8_t" `1689 
+V L "ch" 43 27 "uint8_t" `1691 
 C L "execute_mission_sequence" 43 7 1 "FUNCTION"
 C L "execute_mission_sequence" 43 7 1 "FUNCTION"
 C L "execute_mission_sequence" 43 7 1 "FUNCTION"
@@ -3388,21 +3389,21 @@ C L "permit_smf_transfer" 44 7 1 "FUNCTION"
 C L "permit_smf_transfer" 44 7 1 "FUNCTION"
 C L "MAIN" 1 74 2 "FUNCTION"
 F N "MAIN" 0 3 ""
-F G "MAIN" 0 4 "void()" `1696 
+F G "MAIN" 0 4 "void()" `1698 
 C L "MAIN" 0 11 1 "FUNCTION"
-V L "is_finished" 0 17 "int1" `1704 
-V L "last_buffer_size" 0 18 "int8" `1705 
-V L "loop_counter" 0 19 "int32" `1706 
-C L "MAIN" 0 11 1 "FUNCTION"
-C L "MAIN" 0 11 1 "FUNCTION"
-V L "timeout_ms" 0 36 "uint8_t" `1710 
+V L "is_finished" 0 17 "int1" `1706 
+V L "last_buffer_size" 0 18 "int8" `1707 
+V L "loop_counter" 0 19 "int32" `1708 
 C L "MAIN" 0 11 1 "FUNCTION"
 C L "MAIN" 0 11 1 "FUNCTION"
+V L "timeout_ms" 0 36 "uint8_t" `1712 
 C L "MAIN" 0 11 1 "FUNCTION"
-V L "i" 0 59 "int8" `1715 
 C L "MAIN" 0 11 1 "FUNCTION"
 C L "MAIN" 0 11 1 "FUNCTION"
-V L "recieve_cmd" 0 71 "Command" `1717 
+V L "i" 0 59 "int8" `1717 
+C L "MAIN" 0 11 1 "FUNCTION"
+C L "MAIN" 0 11 1 "FUNCTION"
+V L "recieve_cmd" 0 71 "Command" `1719 
 C L "MAIN" 0 11 1 "FUNCTION"
 C L "MAIN" 0 11 1 "FUNCTION"
 F B "reset_cpu" 0 0

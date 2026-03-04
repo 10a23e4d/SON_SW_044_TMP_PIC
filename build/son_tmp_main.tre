@@ -136,7 +136,7 @@
    ³  ³     ÃÄmake_flash_data_table  0/176  Ram=64
    ³  ³     ³  ÃÄ@MEMSET  0/36  Ram=0
    ³  ³     ³  ÀÄcalc_crc8  0/108  Ram=4
-   ³  ³     ÃÄsubsector_4kByte_erase  0/858  Ram=29
+   ³  ³     ÃÄsubsector_4kByte_erase  0/858  Ram=28
    ³  ³     ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³     ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³     ³  ÃÄspi_xfer_select_stream  0/240  Ram=13
@@ -252,7 +252,7 @@
    ³  ³  ÀÄ*
    ³  ÃÄ@PUTCHAR_1_  0/82  Ram=1
    ³  ÃÄ@PUTCHAR_1_  0/82  Ram=1
-   ³  ÃÄexecute_command  0/52  Ram=3
+   ³  ÃÄexecute_command  0/110  Ram=4
    ³  ³  ÃÄtransmit_ack  0/22  Ram=0
    ³  ³  ³  ÀÄtransmit_command  0/150  Ram=25
    ³  ³  ³     ÃÄcalc_crc8  0/108  Ram=4
@@ -265,6 +265,8 @@
    ³  ³  ³        ÃÄ@PUTCHAR_1_  0/82  Ram=1
    ³  ³  ³        ÃÄ@PUTCHAR_1_  0/82  Ram=1
    ³  ³  ³        ÀÄ@PUTCHAR_1_  0/82  Ram=1
+   ³  ³  ÃÄ@PSTRINGC_950  0/48  Ram=3
+   ³  ³  ³  ÀÄ*
    ³  ³  ÃÄpiclog_make  0/420  Ram=14
    ³  ³  ³  ÀÄ*
    ³  ³  ÀÄprocess_boss_command  0/232  Ram=1
@@ -316,7 +318,7 @@
    ³  ³     ³  ³  ³  ÀÄ*
    ³  ³     ³  ³  ÃÄ@MEMSET  0/36  Ram=0
    ³  ³     ³  ³  ÃÄ@delay_ms1  0/46  Ram=1
-   ³  ³     ³  ³  ÃÄexecute_temp_measurement  0/674  Ram=86
+   ³  ³     ³  ³  ÃÄexecute_temp_measurement  0/676  Ram=86
    ³  ³     ³  ³  ³  ÃÄ@PSTRINGCN_950  0/54  Ram=4
    ³  ³     ³  ³  ³  ³  ÀÄ*
    ³  ³     ³  ³  ³  ÃÄ@PRINTF_U_950  0/170  Ram=2

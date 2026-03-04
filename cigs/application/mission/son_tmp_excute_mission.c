@@ -74,19 +74,30 @@ static void process_boss_command(uint8_t cmd)
     }
 }
 
-// 変更: 解析済みのコマンドを引数として受け取る
 int1 execute_command(Command* cmd)
 {
-    uint8_t frame_id = cmd->frame_id;
+    // 共通ライブラリの解釈による仮のID (00=通常コマンド, 01=Ping疎通確認)
+    uint8_t lib_frame_id = cmd->frame_id;
 
-    // コマンドを受理したことをBOSS(シミュレータ)に知らせる (ACKを返す)
+    // どちらにせよ、まずはBOSSにACK(受領確認)を返す
     transmit_ack();
 
+    // もし Ping (AA C1 C1) だった場合は、コマンド処理はせずに終わる
+    if (lib_frame_id == 0x01)
+    {
+        fprintf(PC, "Received Ping (Heartbeat)\r\n");
+        return TRUE;
+    }
+
+    // 通常のコマンドパケット (AA C0 ...) の場合
+    // 本当のコマンドID(10など)は、ペイロードの先頭(content[0])に入っている！
+    uint8_t real_cmd = cmd->content[0];
+
     // コマンド受信ログを記録
-    piclog_make(0x10, frame_id);
+    piclog_make(0x10, real_cmd);
 
-    // コマンドに応じた処理へ分岐
-    process_boss_command(frame_id);
+    // 本当のコマンドIDを使って分岐処理へ
+    process_boss_command(real_cmd);
 
-    return TRUE; // コマンドが正常に処理されたことを示す
+    return TRUE;
 }

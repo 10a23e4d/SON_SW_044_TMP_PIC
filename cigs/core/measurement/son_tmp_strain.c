@@ -187,7 +187,7 @@ void execute_measurement(uint8_t mode, uint8_t channel, uint8_t samplingRate)
     output_low(PIN_VREF_EN);
     output_low(PIN_LED1);
 
-    fprintf(PC, "End CIGS Measurement Sequence\r\n");
+    fprintf(PC, "End TMP Measurement Sequence\r\n");
 
     // フラッシュのアドレス管理領域をまとめて更新
     write_misf_address_area();

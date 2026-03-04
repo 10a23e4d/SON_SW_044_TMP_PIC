@@ -1,12 +1,12 @@
 
-ROM used:   16354/131056 (12%)
-            16354/131056 (12%) including unused fragments
+ROM used:   16442/131056 (13%)
+            16442/131056 (13%) including unused fragments
 
             3.1 Average locations per line
             19.6 Average locations per statement
 
 RAM used:   360/3578 (10%) at main() level
-            588/3578 (16%) worst case
+            589/3578 (16%) worst case
 
 Stack used: 7 worst case (6 in main + 1 for interrupts)
 Stack size: 31
@@ -43,7 +43,7 @@ Lines Stmts  %   Files
    21     0   0  cigs\application\mission\son_tmp_mode_flash.h
    45    16   2  cigs\hardware\mcu\src\timer.c
    37     4   0  cigs\hardware\mcu\src\uart.c
-  587   290  35  lib\device\mt25q.c
+  587   290  34  lib\device\mt25q.c
    60    15   2  lib\tool\calc_tools.c
    83    41   5  lib\tool\smf_queue.c
   127    64   8  lib\communication\communication.c
@@ -55,11 +55,11 @@ Lines Stmts  %   Files
    99    35   4  cigs\core\storage\son_tmp_smf.c
    21     0   0  cigs\core\storage\son_tmp_smf.h
   157    71   8  cigs\core\storage\son_tmp_flash.c
-   93    34   4  cigs\application\mission\son_tmp_excute_mission.c
+  104    39   5  cigs\application\mission\son_tmp_excute_mission.c
    48    10   1  cigs\application\mission\son_tmp_mode_mission.c
    49    11   1  cigs\application\mission\son_tmp_mode_flash.c
 ----- -----
- 5262   836 Total
+ 5273   841 Total
 
 Page ROM  %  RAM    Vol Diff  Functions:
 ---- --- --- ---    --- ----  ----------
@@ -85,7 +85,7 @@ Page ROM  %  RAM    Vol Diff  Functions:
 0    380   1   18    791 10.0  spi_xfer_two_datas_select_stream
 0     84   0    6             @WRITEBITA
 0    160   0    6    199  3.8  status_register
-0    858   3   29   2032  9.9  subsector_4kByte_erase
+0    858   3   28   2032  9.9  subsector_4kByte_erase
 0    536   2   28   1438  8.4  read_data_bytes
 0    900   3   29   2226 10.5  write_data_bytes
 0    200   1   25    353  5.6  is_connect
@@ -137,7 +137,7 @@ Page ROM  %  RAM    Vol Diff  Functions:
 0     22   0    0             @const1619
 0     12   0    0             @const1620
 0     32   0    0     37  1.3  read_adc_internal
-0    674   2   86   1740  8.9  execute_temp_measurement
+0    676   2   86   1740  8.9  execute_temp_measurement
 0     44   0    0             @const1624
 0     24   0    0             @const1631
 0    420   1   14   1146  6.5  piclog_make
@@ -173,52 +173,53 @@ Page ROM  %  RAM    Vol Diff  Functions:
 0    232   1    1    439  4.5  process_boss_command
 0     28   0    0             @const1682
 0     26   0    0             @const1683
-0     52   0    3    133  2.7  execute_command
+0    110   0    4    280  4.3  execute_command
+0     28   0    0    435  3.4  @const1685
 0    202   1    4    435  3.4  execute_mission_sequence
-0     34   0    0             @const1685
-0     24   0    0             @const1690
-0     36   0    0             @const1691
+0     34   0    0             @const1687
+0     24   0    0             @const1692
+0     36   0    0     70  1.5  @const1693
 0     38   0    0     70  1.5  prepare_smf_transfer
-0     32   0    0             @const1692
+0     32   0    0     70  1.5  @const1694
 0     38   0    0     70  1.5  execute_smf_transfer
-0     32   0    0             @const1693
+0     32   0    0    123  2.0  @const1695
 0     58   0    0    123  2.0  permit_smf_transfer
-0     30   0    0             @const1694
-0     42   0    0             @const1695
+0     30   0    0             @const1696
+0     42   0    0   2177  9.8  @const1697
 0   1734   5   24   2177  9.8  MAIN
-0     70   0    0             @const1699
-0     26   0    0             @const1700
-0     28   0    0             @const1701
-0     10   0    0             @const1702
-0     10   0    0             @const1703
-0     38   0    0             @const1707
-0     32   0    0             @const1708
-0     20   0    0             @const1711
+0     70   0    0             @const1701
+0     26   0    0             @const1702
+0     28   0    0             @const1703
+0     10   0    0             @const1704
+0     10   0    0             @const1705
+0     38   0    0             @const1709
+0     32   0    0             @const1710
+0     20   0    0             @const1713
 0    274   1    6             @PRINTF_D_950
-0     50   0    0             @const1718
-0     34   0    0             @const1719
-0     66   0    0             @const1720
-0     12   0    0             @const1722
+0     50   0    0             @const1720
+0     34   0    0             @const1721
+0     66   0    0             @const1722
+0     12   0    0             @const1724
  Inline         0             @cinit1
 
 Program metrics:
-    Functions               43
-    Statements              836
-    Comments                1423
-    Volume (V)              44961
-    Difficulty (D)          213.8
-    Effort to implement (E) 9613831
-    Time to implement (T)   148 hours, 22 minutes
-    Est Delivered Bugs (B)  15
-    Cyclomatic Complexity   80
-    Maintainability (MI)    111
+    Functions               48
+    Statements              841
+    Comments                1425
+    Volume (V)              50853
+    Difficulty (D)          234.3
+    Effort to implement (E) 11915661
+    Time to implement (T)   183 hours, 53 minutes
+    Est Delivered Bugs (B)  17
+    Cyclomatic Complexity   91
+    Maintainability (MI)    130
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00004     6  0  
 00006-00006     0  2  
 00008-000BC   182  0  
-000BE-0FFFE  16166  49180  
+000BE-0FFFE  16254  49092  
 10000-1FFEE     0  65520  
 
 
