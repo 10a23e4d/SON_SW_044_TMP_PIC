@@ -1,5 +1,5 @@
 ÀÄson_tmp_main
-   ÃÄMAIN  0/1514  Ram=16
+   ÃÄMAIN  0/1764  Ram=24
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄ@cinit2  (Inline)  Ram=0
    ³  ÃÄ@delay_ms1  0/46  Ram=1
@@ -27,7 +27,7 @@
    ³  ³  ÃÄ@delay_ms1  0/46  Ram=1
    ³  ³  ÀÄ@PSTRINGC_950  0/48  Ram=3
    ³  ³     ÀÄ*
-   ³  ÃÄsetup_uart_to_boss  0/42  Ram=0
+   ³  ÃÄsetup_uart_to_boss  0/36  Ram=0
    ³  ³  ÃÄ@PSTRINGC_950  0/48  Ram=3
    ³  ³  ³  ÀÄ*
    ³  ³  ÀÄ@PSTRINGC_950  0/48  Ram=3
@@ -136,7 +136,7 @@
    ³  ³     ÃÄmake_flash_data_table  0/176  Ram=64
    ³  ³     ³  ÃÄ@MEMSET  0/36  Ram=0
    ³  ³     ³  ÀÄcalc_crc8  0/108  Ram=4
-   ³  ³     ÃÄsubsector_4kByte_erase  0/862  Ram=25
+   ³  ³     ÃÄsubsector_4kByte_erase  0/858  Ram=29
    ³  ³     ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³     ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³     ³  ÃÄspi_xfer_select_stream  0/240  Ram=13
@@ -171,6 +171,10 @@
    ³  ³  ÀÄ*
    ³  ÃÄ@PSTRINGC_950  0/48  Ram=3
    ³  ³  ÀÄ*
+   ³  ÃÄ@PUTCHAR_1_  0/82  Ram=1
+   ³  ÃÄ@GETCH_BIU_2  0/38  Ram=0
+   ³  ÃÄ@GETCH_BIU_2  0/38  Ram=0
+   ³  ÃÄ@delay_ms1  0/46  Ram=1
    ³  ÃÄ@PSTRINGCN_950  0/54  Ram=4
    ³  ³  ÀÄ*
    ³  ÃÄ@PRINTF_D_950  0/274  Ram=6
@@ -312,7 +316,7 @@
    ³  ³     ³  ³  ³  ÀÄ*
    ³  ³     ³  ³  ÃÄ@MEMSET  0/36  Ram=0
    ³  ³     ³  ³  ÃÄ@delay_ms1  0/46  Ram=1
-   ³  ³     ³  ³  ÃÄexecute_temp_measurement  0/692  Ram=86
+   ³  ³     ³  ³  ÃÄexecute_temp_measurement  0/674  Ram=86
    ³  ³     ³  ³  ³  ÃÄ@PSTRINGCN_950  0/54  Ram=4
    ³  ³     ³  ³  ³  ³  ÀÄ*
    ³  ³     ³  ³  ³  ÃÄ@PRINTF_U_950  0/170  Ram=2

@@ -1,9 +1,9 @@
-D G "__PCH__" 0 147 ""5.104""
-D G "__DEVICE__" 0 147 "6794"
-D G "__DATE__" 0 147 ""4-Mar-26""
-D G "__TIME__" 0 147 ""13:18:34""
-D G "_UNICODE" 0 147 ""?""
-D G "__EVAL" 0 147 ""?"" "#include "cigs/system/son_tmp_main.h""
+D G "__PCH__" 0 154 ""5.104""
+D G "__DEVICE__" 0 154 "6794"
+D G "__DATE__" 0 154 ""4-Mar-26""
+D G "__TIME__" 0 154 ""13:46:43""
+D G "_UNICODE" 0 154 ""?""
+D G "__EVAL" 0 154 ""?""
 D G "son_tmp_MAIN_H" 1 2 ""
 D G "son_tmp_CONFIG_H" 2 2 ""
 D G "SELF_DEVICE_ID" 2 4 "CIGS_PIC"
@@ -2809,16 +2809,15 @@ F N "get_current_sec" 28 41 ""
 F G "get_current_sec" 28 42 "uint32_t()" `1014 
 V G "boss_receive_buffer" 29 2 "int8[32]" `1019 
 V G "boss_receive_buffer_size" 29 3 "int8" `1020 
-F N "RDA_isr" 29 4 ""
-F G "RDA_isr" 29 5 "void()" `1021  "ハードウェアがデータを受信した瞬間に自動で呼ばれる"
-C L "RDA_isr" 29 14 1 "FUNCTION"
-F N "setup_uart_to_boss" 29 18 ""
-F G "setup_uart_to_boss" 29 19 "void()" `1022 
-F N "clear_receive_signal" 29 28 ""
-V L "receive_signal" 29 28 "*int8" `1024 
-V L "receive_signal_size" 29 28 "*int8" `1466 
-F G "clear_receive_signal" 29 29 "void(*int8 receive_signal,*int8 receive_signal_size)" `1023 
-C L "spi_xfer_select_stream" 29 14 1 "FUNCTION"
+C L "setup_uart_to_boss" 29 5 7 "FUNCTION"
+F N "setup_uart_to_boss" 29 21 ""
+F G "setup_uart_to_boss" 29 22 "void()" `1022 
+C L "setup_uart_to_boss" 29 5 2 "FUNCTION"
+F N "clear_receive_signal" 29 31 ""
+V L "receive_signal" 29 31 "*int8" `1024 
+V L "receive_signal_size" 29 31 "*int8" `1466 
+F G "clear_receive_signal" 29 32 "void(*int8 receive_signal,*int8 receive_signal_size)" `1023 
+C L "spi_xfer_select_stream" 29 5 1 "FUNCTION"
 C L "spi_xfer_select_stream" 1 54 1 "FUNCTION"
 C L "spi_xfer_select_stream" 30 5 1 "FUNCTION"
 F N "spi_xfer_select_stream" 30 6 ""
@@ -3387,21 +3386,21 @@ F G "permit_smf_transfer" 44 36 "void()" `1454
 C L "permit_smf_transfer" 44 7 1 "FUNCTION"
 C L "permit_smf_transfer" 44 7 1 "FUNCTION"
 C L "MAIN" 1 74 2 "FUNCTION"
-F N "MAIN" 0 5 ""
-F G "MAIN" 0 6 "void()" `1696 
-C L "MAIN" 0 13 1 "FUNCTION"
-V L "is_finished" 0 19 "int1" `1704 
-V L "last_buffer_size" 0 20 "int8" `1705 
-C L "MAIN" 0 13 1 "FUNCTION"
-C L "MAIN" 0 13 2 "FUNCTION"
-V L "i" 0 32 "int8" `1712 
-C L "MAIN" 0 13 1 "FUNCTION"
-C L "MAIN" 0 13 1 "FUNCTION"
-V L "recieve_cmd" 0 43 "Command" `1714 
-C L "MAIN" 0 13 1 "FUNCTION"
-C L "MAIN" 0 13 1 "FUNCTION"
-C L "MAIN" 0 13 1 "FUNCTION"
-C L "MAIN" 0 13 1 "FUNCTION"
+F N "MAIN" 0 3 ""
+F G "MAIN" 0 4 "void()" `1696 
+C L "MAIN" 0 11 1 "FUNCTION"
+V L "is_finished" 0 17 "int1" `1704 
+V L "last_buffer_size" 0 18 "int8" `1705 
+V L "loop_counter" 0 19 "int32" `1706 
+C L "MAIN" 0 11 1 "FUNCTION"
+C L "MAIN" 0 11 1 "FUNCTION"
+V L "timeout_ms" 0 36 "uint8_t" `1710 
+C L "MAIN" 0 11 1 "FUNCTION"
+C L "MAIN" 0 11 1 "FUNCTION"
+C L "MAIN" 0 11 1 "FUNCTION"
+V L "i" 0 59 "int8" `1715 
+C L "MAIN" 0 11 1 "FUNCTION"
+V L "recieve_cmd" 0 70 "Command" `1717 
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 1
