@@ -1,0 +1,7 @@
+Compiling C:\Users\rice_\Chiba Institute of Technology\6号機 - ドキュメント\TMP_MIS\02_Software\SON_SW_044_TMP_PIC\son_tmp_main on 25-3-26 at 13:15
+*** Error 12 "C:\Users\rice_\Chiba Institute of Technology\6号機 - ドキュメント\TMP_MIS\02_Software\SON_SW_044_TMP_PIC\lib\device\mt25q.c" Line 15(22,36): Undefined identifier   SMF_STREAM
+*** Error 12 "C:\Users\rice_\Chiba Institute of Technology\6号機 - ドキュメント\TMP_MIS\02_Software\SON_SW_044_TMP_PIC\lib\device\mt25q.c" Line 36(22,36): Undefined identifier   SMF_STREAM
+*** Error 12 "C:\Users\rice_\Chiba Institute of Technology\6号機 - ドキュメント\TMP_MIS\02_Software\SON_SW_044_TMP_PIC\lib\device\mt25q.c" Line 38(47,61): Undefined identifier   SMF_STREAM
+*** Error 12 "C:\Users\rice_\Chiba Institute of Technology\6号機 - ドキュメント\TMP_MIS\02_Software\SON_SW_044_TMP_PIC\lib\device\mt25q.c" Line 60(22,36): Undefined identifier   SMF_STREAM
+*** Error 12 "C:\Users\rice_\Chiba Institute of Technology\6号機 - ドキュメント\TMP_MIS\02_Software\SON_SW_044_TMP_PIC\lib\device\mt25q.c" Line 62(22,36): Undefined identifier   SMF_STREAM
+*** Error 12 "C:\Users\rice_\Chiba Institute of Technology\6号機 - ドキュメント\TMP_MIS\02_Software\SON_SW_044_TMP_PIC\cigs\core\storage\son_tmp_smf.c" Line 69(22,32): Undefined identifier   SMF_STREAM

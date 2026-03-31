@@ -1,5 +1,5 @@
 ÀÄson_tmp_main
-   ÃÄMAIN  0/1734  Ram=24
+   ÃÄMAIN  0/1792  Ram=24
    ³  ÃÄ@cinit1  (Inline)  Ram=0
    ³  ÃÄ@cinit2  (Inline)  Ram=0
    ³  ÃÄ@delay_ms1  0/46  Ram=1
@@ -45,11 +45,11 @@
    ³  ³  ÃÄis_connect  0/198  Ram=25
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
-   ³  ³  ³  ÃÄspi_xfer_and_read_select_stream  0/564  Ram=28
-   ³  ³  ³  ³  ÃÄ@SPI_XFER_1  0/140  Ram=6
-   ³  ³  ³  ³  ÃÄ@SPI_XFER_1  0/140  Ram=6
-   ³  ³  ³  ³  ÃÄ@SPI_XFER_2  0/140  Ram=6
-   ³  ³  ³  ³  ÀÄ@SPI_XFER_2  0/140  Ram=6
+   ³  ³  ³  ÃÄspi_xfer_and_read_select_stream  0/550  Ram=28
+   ³  ³  ³  ³  ÃÄ@SPI_XFER_1_8  0/32  Ram=3
+   ³  ³  ³  ³  ÃÄ@SPI_XFER_1_8  0/32  Ram=3
+   ³  ³  ³  ³  ÃÄ@SPI_XFER_2  0/96  Ram=6
+   ³  ³  ³  ³  ÀÄ@SPI_XFER_2  0/96  Ram=6
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ÀÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ÃÄ@PSTRINGC_950  0/48  Ram=3
@@ -66,13 +66,13 @@
    ³  ³  ÃÄread_data_bytes  0/532  Ram=28
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
-   ³  ³  ³  ÃÄspi_xfer_and_read_select_stream  0/564  Ram=28
+   ³  ³  ³  ÃÄspi_xfer_and_read_select_stream  0/550  Ram=28
    ³  ³  ³  ³  ÀÄ*
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
-   ³  ³  ³  ÃÄspi_xfer_and_read_select_stream  0/564  Ram=28
+   ³  ³  ³  ÃÄspi_xfer_and_read_select_stream  0/550  Ram=28
    ³  ³  ³  ³  ÀÄ*
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ÀÄ@WRITEBITA  0/84  Ram=6
@@ -96,36 +96,36 @@
    ³  ³  ÃÄwrite_data_bytes  0/900  Ram=29
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
-   ³  ³  ³  ÃÄspi_xfer_select_stream  0/240  Ram=13
-   ³  ³  ³  ³  ÃÄ@SPI_XFER_1  0/140  Ram=6
-   ³  ³  ³  ³  ÀÄ@SPI_XFER_2  0/140  Ram=6
+   ³  ³  ³  ÃÄspi_xfer_select_stream  0/232  Ram=13
+   ³  ³  ³  ³  ÃÄ@SPI_XFER_1_8  0/32  Ram=3
+   ³  ³  ³  ³  ÀÄ@SPI_XFER_2  0/96  Ram=6
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
-   ³  ³  ³  ÃÄspi_xfer_two_datas_select_stream  0/380  Ram=18
-   ³  ³  ³  ³  ÃÄ@SPI_XFER_1  0/140  Ram=6
-   ³  ³  ³  ³  ÃÄ@SPI_XFER_1  0/140  Ram=6
-   ³  ³  ³  ³  ÃÄ@SPI_XFER_2  0/140  Ram=6
-   ³  ³  ³  ³  ÀÄ@SPI_XFER_2  0/140  Ram=6
+   ³  ³  ³  ÃÄspi_xfer_two_datas_select_stream  0/364  Ram=18
+   ³  ³  ³  ³  ÃÄ@SPI_XFER_1_8  0/32  Ram=3
+   ³  ³  ³  ³  ÃÄ@SPI_XFER_1_8  0/32  Ram=3
+   ³  ³  ³  ³  ÃÄ@SPI_XFER_2  0/96  Ram=6
+   ³  ³  ³  ³  ÀÄ@SPI_XFER_2  0/96  Ram=6
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
-   ³  ³  ³  ÃÄspi_xfer_select_stream  0/240  Ram=13
+   ³  ³  ³  ÃÄspi_xfer_select_stream  0/232  Ram=13
    ³  ³  ³  ³  ÀÄ*
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
-   ³  ³  ³  ÃÄspi_xfer_two_datas_select_stream  0/380  Ram=18
+   ³  ³  ³  ÃÄspi_xfer_two_datas_select_stream  0/364  Ram=18
    ³  ³  ³  ³  ÀÄ*
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ÃÄstatus_register  0/160  Ram=6
    ³  ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
-   ³  ³  ³  ³  ÃÄspi_xfer_and_read_select_stream  0/564  Ram=28
+   ³  ³  ³  ³  ÃÄspi_xfer_and_read_select_stream  0/550  Ram=28
    ³  ³  ³  ³  ³  ÀÄ*
    ³  ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ³  ÀÄ@WRITEBITA  0/84  Ram=6
@@ -140,25 +140,25 @@
    ³  ³     ÃÄsubsector_4kByte_erase  0/858  Ram=25
    ³  ³     ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³     ³  ÃÄ@WRITEBITA  0/84  Ram=6
-   ³  ³     ³  ÃÄspi_xfer_select_stream  0/240  Ram=13
+   ³  ³     ³  ÃÄspi_xfer_select_stream  0/232  Ram=13
    ³  ³     ³  ³  ÀÄ*
    ³  ³     ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³     ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³     ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³     ³  ÃÄ@WRITEBITA  0/84  Ram=6
-   ³  ³     ³  ÃÄspi_xfer_select_stream  0/240  Ram=13
+   ³  ³     ³  ÃÄspi_xfer_select_stream  0/232  Ram=13
    ³  ³     ³  ³  ÀÄ*
    ³  ³     ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³     ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³     ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³     ³  ÃÄ@WRITEBITA  0/84  Ram=6
-   ³  ³     ³  ÃÄspi_xfer_select_stream  0/240  Ram=13
+   ³  ³     ³  ÃÄspi_xfer_select_stream  0/232  Ram=13
    ³  ³     ³  ³  ÀÄ*
    ³  ³     ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³     ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³     ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³     ³  ÃÄ@WRITEBITA  0/84  Ram=6
-   ³  ³     ³  ÃÄspi_xfer_select_stream  0/240  Ram=13
+   ³  ³     ³  ÃÄspi_xfer_select_stream  0/232  Ram=13
    ³  ³     ³  ³  ÀÄ*
    ³  ³     ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³     ³  ÃÄ@WRITEBITA  0/84  Ram=6
@@ -404,7 +404,7 @@
    ³  ³     ³     ³  ÀÄ*
    ³  ³     ³     ÃÄread_data_bytes  0/532  Ram=28
    ³  ³     ³     ³  ÀÄ*
-   ³  ³     ³     ÃÄ@SPI_XFER_2  0/140  Ram=6
+   ³  ³     ³     ÃÄ@SPI_XFER_2  0/96  Ram=6
    ³  ³     ³     ÀÄ@PSTRINGC_950  0/48  Ram=3
    ³  ³     ³        ÀÄ*
    ³  ³     ÃÄpermit_smf_transfer  0/58  Ram=0

@@ -2,6 +2,9 @@
 
 void main()
 {
+    setup_adc_ports(NO_ANALOGS);
+    set_tris_b(get_tris_b() & 0b11110111);
+    output_high(PIN_B3);
     delay_ms(100);
     fprintf(PC,"\r\n\r\n\r\n============================================================\r\n");
     fprintf(PC,"This is SHION TMP PIC.\r\n");
