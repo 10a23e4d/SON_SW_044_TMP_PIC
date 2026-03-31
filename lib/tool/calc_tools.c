@@ -57,3 +57,23 @@ unsigned int32 int32_msb_to_lsb(unsigned int32 value)
            ((value & 0x000000FF) << 24);
 }
 // End of file
+
+uint32_t calc_crc24(uint8_t *data, uint16_t length)
+{
+    uint32_t crc = 0xFFFFFF; // 初期値
+    uint32_t poly = 0x864CFB; // 多項式
+
+    for (uint16_t i = 0; i < length; i++)
+    {
+        crc ^= ((uint32_t)data[i] << 16);
+        for (uint8_t j = 0; j < 8; j++)
+        {
+            crc <<= 1;
+            if (crc & 0x1000000) // 24bit目(あふれたビット)が1ならXOR
+            {
+                crc ^= poly;
+            }
+        }
+    }
+    return crc & 0xFFFFFF; // 下位24bitのみを返す
+}

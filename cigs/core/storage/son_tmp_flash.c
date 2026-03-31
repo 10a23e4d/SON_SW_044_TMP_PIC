@@ -18,7 +18,7 @@ void misf_init()
 {
     fprintf(PC, "MISSION FLASH Initialize\r\n");
 
-    // ★追加: 起動直後に「全ての」SPIデバイスを沈黙させる
+    // 起動直後に「全ての」SPIデバイスを沈黙させる
     output_high(PIN_CS_ADC);   // LTC2452 のCSをHigh // CPLD のCSをHigh
     output_high(MIS_FM_CS);    // Flash のCSをHigh
     output_high(SMF_CS);       // SMF のCSをHigh

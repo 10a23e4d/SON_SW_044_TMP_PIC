@@ -42,10 +42,10 @@
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@delay_ms1  0/46  Ram=1
    ³  ³  ÃÄ@delay_ms1  0/46  Ram=1
-   ³  ³  ÃÄis_connect  0/198  Ram=25
+   ³  ³  ÃÄis_connect  0/200  Ram=25
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
-   ³  ³  ³  ÃÄspi_xfer_and_read_select_stream  0/552  Ram=28
+   ³  ³  ³  ÃÄspi_xfer_and_read_select_stream  0/550  Ram=28
    ³  ³  ³  ³  ÃÄ@SPI_XFER_1_8  0/32  Ram=3
    ³  ³  ³  ³  ÃÄ@SPI_XFER_1_8  0/32  Ram=3
    ³  ³  ³  ³  ÃÄ@SPI_XFER_2  0/96  Ram=6
@@ -56,23 +56,23 @@
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@PSTRINGC_950  0/48  Ram=3
    ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄis_connect  0/198  Ram=25
+   ³  ³  ÃÄis_connect  0/200  Ram=25
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@PSTRINGC_950  0/48  Ram=3
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@PSTRINGC_950  0/48  Ram=3
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@MEMSET  0/36  Ram=0
-   ³  ³  ÃÄread_data_bytes  0/532  Ram=28
+   ³  ³  ÃÄread_data_bytes  0/536  Ram=28
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
-   ³  ³  ³  ÃÄspi_xfer_and_read_select_stream  0/552  Ram=28
+   ³  ³  ³  ÃÄspi_xfer_and_read_select_stream  0/550  Ram=28
    ³  ³  ³  ³  ÀÄ*
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
-   ³  ³  ³  ÃÄspi_xfer_and_read_select_stream  0/552  Ram=28
+   ³  ³  ³  ÃÄspi_xfer_and_read_select_stream  0/550  Ram=28
    ³  ³  ³  ³  ÀÄ*
    ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ÀÄ@WRITEBITA  0/84  Ram=6
@@ -82,9 +82,9 @@
    ³  ³  ³  ÀÄ*
    ³  ³  ÀÄ@PSTRINGC_950  0/48  Ram=3
    ³  ³     ÀÄ*
-   ³  ÃÄpiclog_make  0/416  Ram=14
+   ³  ÃÄpiclog_make  0/420  Ram=14
    ³  ³  ÃÄ@MEMSET  0/36  Ram=0
-   ³  ³  ÃÄget_current_sec  0/20  Ram=0
+   ³  ³  ÃÄget_current_sec  0/18  Ram=0
    ³  ³  ÃÄ@PSTRINGC_950  0/48  Ram=3
    ³  ³  ³  ÀÄ*
    ³  ³  ÃÄ@PRINTF_X_950  0/112  Ram=2
@@ -125,7 +125,7 @@
    ³  ³  ³  ÃÄstatus_register  0/160  Ram=6
    ³  ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
-   ³  ³  ³  ³  ÃÄspi_xfer_and_read_select_stream  0/552  Ram=28
+   ³  ³  ³  ³  ÃÄspi_xfer_and_read_select_stream  0/550  Ram=28
    ³  ³  ³  ³  ³  ÀÄ*
    ³  ³  ³  ³  ÃÄ@WRITEBITA  0/84  Ram=6
    ³  ³  ³  ³  ÀÄ@WRITEBITA  0/84  Ram=6
@@ -178,7 +178,7 @@
    ³  ÃÄ@delay_ms1  0/46  Ram=1
    ³  ÃÄ@PSTRINGCN_950  0/54  Ram=4
    ³  ³  ÀÄ*
-   ³  ÃÄ@PRINTF_D_950  0/274  Ram=6
+   ³  ÃÄ@PRINTF_D_950  0/272  Ram=6
    ³  ³  ÃÄ@DIV88  0/72  Ram=3
    ³  ³  ÃÄ@DIV88  0/72  Ram=3
    ³  ³  ÃÄ@PUTCHAR_1_  0/82  Ram=1
@@ -268,9 +268,9 @@
    ³  ³  ³        ÀÄ@PUTCHAR_1_  0/82  Ram=1
    ³  ³  ÃÄ@PSTRINGC_950  0/48  Ram=3
    ³  ³  ³  ÀÄ*
-   ³  ³  ÃÄpiclog_make  0/416  Ram=14
+   ³  ³  ÃÄpiclog_make  0/420  Ram=14
    ³  ³  ³  ÀÄ*
-   ³  ³  ÀÄprocess_boss_command  0/274  Ram=3
+   ³  ³  ÀÄprocess_boss_command  0/272  Ram=3
    ³  ³     ÃÄ@PSTRINGCN_950  0/54  Ram=4
    ³  ³     ³  ÀÄ*
    ³  ³     ÃÄ@PRINTF_X_950  0/112  Ram=2
@@ -280,7 +280,7 @@
    ³  ³     ÃÄexecute_mission_sequence  0/382  Ram=6
    ³  ³     ³  ÃÄ@PSTRINGC_950  0/48  Ram=3
    ³  ³     ³  ³  ÀÄ*
-   ³  ³     ³  ÃÄpiclog_make  0/416  Ram=14
+   ³  ³     ³  ÃÄpiclog_make  0/420  Ram=14
    ³  ³     ³  ³  ÀÄ*
    ³  ³     ³  ÃÄ@PSTRINGCN_950  0/54  Ram=4
    ³  ³     ³  ³  ÀÄ*
@@ -306,7 +306,7 @@
    ³  ³     ³  ³  ÀÄ*
    ³  ³     ³  ÃÄ@PUTCHAR_1_  0/82  Ram=1
    ³  ³     ³  ÃÄ@PUTCHAR_1_  0/82  Ram=1
-   ³  ³     ³  ÃÄexecute_measurement  0/908  Ram=147
+   ³  ³     ³  ÃÄexecute_measurement  0/1514  Ram=108
    ³  ³     ³  ³  ÃÄ@PSTRINGCN_950  0/54  Ram=4
    ³  ³     ³  ³  ³  ÀÄ*
    ³  ³     ³  ³  ÃÄ@PRINTF_U_950  0/170  Ram=2
@@ -321,13 +321,19 @@
    ³  ³     ³  ³  ³  ÀÄ*
    ³  ³     ³  ³  ÃÄ@delay_ms1  0/46  Ram=1
    ³  ³     ³  ³  ÃÄ@MEMSET  0/36  Ram=0
-   ³  ³     ³  ³  ÃÄ@MEMSET  0/36  Ram=0
-   ³  ³     ³  ³  ÃÄread_adc_ltc2452  0/74  Ram=4
+   ³  ³     ³  ³  ÃÄget_current_sec  0/18  Ram=0
+   ³  ³     ³  ³  ÃÄread_adc_internal  0/34  Ram=0
+   ³  ³     ³  ³  ÃÄswitch_channel  0/62  Ram=1
+   ³  ³     ³  ³  ÃÄread_adc_ltc2452  0/76  Ram=4
    ³  ³     ³  ³  ³  ÃÄ@SPI_XFER_1_8  0/32  Ram=3
    ³  ³     ³  ³  ³  ÀÄ@SPI_XFER_1_8  0/32  Ram=3
+   ³  ³     ³  ³  ÃÄswitch_channel  0/62  Ram=1
+   ³  ³     ³  ³  ÃÄread_adc_ltc2452  0/76  Ram=4
+   ³  ³     ³  ³  ³  ÀÄ*
+   ³  ³     ³  ³  ÃÄcalc_crc24  0/272  Ram=20
+   ³  ³     ³  ³  ÃÄwrite_data_bytes  0/900  Ram=29
+   ³  ³     ³  ³  ³  ÀÄ*
    ³  ³     ³  ³  ÃÄ@MEMSET  0/36  Ram=0
-   ³  ³     ³  ³  ÃÄread_adc_internal  0/34  Ram=0
-   ³  ³     ³  ³  ÃÄ@MEMSET  0/36  Ram=0
    ³  ³     ³  ³  ÃÄ@delay_ms1  0/46  Ram=1
    ³  ³     ³  ³  ÃÄ@delay_ms1  0/46  Ram=1
    ³  ³     ³  ³  ÃÄ@delay_ms1  0/46  Ram=1
@@ -335,17 +341,22 @@
    ³  ³     ³  ³  ÃÄ@delay_ms1  0/46  Ram=1
    ³  ³     ³  ³  ÃÄ@delay_ms1  0/46  Ram=1
    ³  ³     ³  ³  ÃÄ@delay_ms1  0/46  Ram=1
+   ³  ³     ³  ³  ÃÄcalc_crc24  0/272  Ram=20
+   ³  ³     ³  ³  ÃÄwrite_data_bytes  0/900  Ram=29
+   ³  ³     ³  ³  ³  ÀÄ*
+   ³  ³     ³  ³  ÃÄwrite_misf_address_area  0/118  Ram=64
+   ³  ³     ³  ³  ³  ÀÄ*
    ³  ³     ³  ³  ÀÄ@PSTRINGC_950  0/48  Ram=3
    ³  ³     ³  ³     ÀÄ*
-   ³  ³     ³  ÃÄpiclog_make  0/416  Ram=14
+   ³  ³     ³  ÃÄpiclog_make  0/420  Ram=14
    ³  ³     ³  ³  ÀÄ*
    ³  ³     ³  ÀÄ@PSTRINGC_950  0/48  Ram=3
    ³  ³     ³     ÀÄ*
-   ³  ³     ÃÄexecute_flash_dump  0/758  Ram=90
+   ³  ³     ÃÄexecute_flash_dump  0/756  Ram=90
    ³  ³     ³  ÃÄ@PSTRINGC_950  0/48  Ram=3
    ³  ³     ³  ³  ÀÄ*
    ³  ³     ³  ÃÄ@MUL3232  0/116  Ram=14
-   ³  ³     ³  ÃÄread_data_bytes  0/532  Ram=28
+   ³  ³     ³  ÃÄread_data_bytes  0/536  Ram=28
    ³  ³     ³  ³  ÀÄ*
    ³  ³     ³  ÃÄ@PSTRINGCN_950  0/54  Ram=4
    ³  ³     ³  ³  ÀÄ*
@@ -378,7 +389,7 @@
    ³  ³     ÃÄprepare_smf_transfer  0/38  Ram=0
    ³  ³     ³  ÃÄ@PSTRINGC_950  0/48  Ram=3
    ³  ³     ³  ³  ÀÄ*
-   ³  ³     ³  ÃÄpiclog_make  0/416  Ram=14
+   ³  ³     ³  ÃÄpiclog_make  0/420  Ram=14
    ³  ³     ³  ³  ÀÄ*
    ³  ³     ³  ÀÄcigs_smf_prepare  0/444  Ram=8
    ³  ³     ³     ÃÄ@PSTRINGCN_950  0/54  Ram=4
@@ -404,12 +415,12 @@
    ³  ³     ÃÄexecute_smf_transfer  0/38  Ram=0
    ³  ³     ³  ÃÄ@PSTRINGC_950  0/48  Ram=3
    ³  ³     ³  ³  ÀÄ*
-   ³  ³     ³  ÃÄpiclog_make  0/416  Ram=14
+   ³  ³     ³  ÃÄpiclog_make  0/420  Ram=14
    ³  ³     ³  ³  ÀÄ*
-   ³  ³     ³  ÀÄcigs_smf_copy  0/478  Ram=76
+   ³  ³     ³  ÀÄcigs_smf_copy  0/480  Ram=76
    ³  ³     ³     ÃÄ@PSTRINGC_950  0/48  Ram=3
    ³  ³     ³     ³  ÀÄ*
-   ³  ³     ³     ÃÄread_data_bytes  0/532  Ram=28
+   ³  ³     ³     ÃÄread_data_bytes  0/536  Ram=28
    ³  ³     ³     ³  ÀÄ*
    ³  ³     ³     ÃÄ@SPI_XFER_2  0/96  Ram=6
    ³  ³     ³     ÀÄ@PSTRINGC_950  0/48  Ram=3
@@ -417,7 +428,7 @@
    ³  ³     ÃÄpermit_smf_transfer  0/58  Ram=0
    ³  ³     ³  ÃÄ@PSTRINGC_950  0/48  Ram=3
    ³  ³     ³  ³  ÀÄ*
-   ³  ³     ³  ÃÄpiclog_make  0/416  Ram=14
+   ³  ³     ³  ÃÄpiclog_make  0/420  Ram=14
    ³  ³     ³  ³  ÀÄ*
    ³  ³     ³  ÃÄcigs_smf_permit  0/116  Ram=0
    ³  ³     ³  ³  ÃÄwrite_misf_address_area  0/118  Ram=64
