@@ -87,6 +87,14 @@ void execute_measurement(uint8_t mode, uint8_t hw_channel, uint8_t samplingRate)
 {
     fprintf(PC, "Start Synchronized Measurement (Mode:%u, HW_Ch:%u)\r\n", mode, hw_channel);
 
+    // ==========================================
+    // 0. 測定開始時に電源・VREF・LEDをONにする
+    // ==========================================
+    output_high(PIN_VREF_EN); // RE0 ON (リファレンス電圧供給)
+    output_high(PIN_LDO_EN);  // RE1 ON (ADC用LDO起動)
+    output_high(PIN_LED2);    // RA1 ON
+    output_high(PIN_LED1);    // RA5 ON
+
     // ========================================================
     // 1. バッファとパケット番号の初期化 (ひずみ用 & 温度用)
     // ========================================================

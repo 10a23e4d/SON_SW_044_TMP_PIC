@@ -1,9 +1,9 @@
-D G "__PCH__" 0 108 ""5.104""
-D G "__DEVICE__" 0 108 "6794"
-D G "__DATE__" 0 108 ""27-Mar-26""
-D G "__TIME__" 0 108 ""11:16:18""
-D G "_UNICODE" 0 108 ""?""
-D G "__EVAL" 0 108 ""?""
+D G "__PCH__" 0 0 ""5.104""
+D G "__DEVICE__" 0 0 ""
+D G "__DATE__" 0 0 ""31-Mar-26""
+D G "__TIME__" 0 0 ""10:55:32""
+D G "_UNICODE" 0 0 ""?""
+D G "__EVAL" 0 0 ""?""
 D G "son_tmp_MAIN_H" 1 2 ""
 D G "son_tmp_CONFIG_H" 2 2 ""
 D G "SELF_DEVICE_ID" 2 4 "CIGS_PIC"
@@ -1036,9 +1036,9 @@ F N "setup_act" 3 1031 ""
 F B "setup_act" 3 1031 "int8()" `442 
 F N "setup_act" 3 1032 ""
 V L "mode" 3 1032 "int8" `444 
-f G "setup_act" 3 1032 "int8(int8 mode,int32 mode)" `443 
+f G "setup_act" 3 1032 "int8(int8 mode)" `443 
 F N "act_status" 3 1033 ""
-F B "act_status" 3 1033 "int8(int8 mode,int32 mode)" `443  "Constants used in setup_oscillator() are:"
+F B "act_status" 3 1033 "int8(int8 mode)" `443  "Constants used in setup_oscillator() are:"
 D G "OSC_31000" 3 1036 "0x00000005"
 D G "OSC_31250" 3 1037 "0x00070000"
 D G "OSC_125KHZ" 3 1038 "0x00060000"
@@ -1087,9 +1087,9 @@ F N "read_adc" 3 1089 ""
 f G "read_adc" 3 1089 "int16()" `449 
 F N "read_adc" 3 1090 ""
 V L "mode" 3 1090 "int8" `450 
-f G "read_adc" 3 1090 "int16(int8 mode,int32 pins)" `449 
+f G "read_adc" 3 1090 "int16(int8 mode)" `449 
 F N "adc_done" 3 1091 ""
-F B "adc_done" 3 1091 "int8(int8 mode,int32 pins)" `449  "Constants used for SETUP_ADC() are:"
+F B "adc_done" 3 1091 "int8(int8 mode)" `449  "Constants used for SETUP_ADC() are:"
 D G "ADC_OFF" 3 1093 "0x10000"
 D G "ADC_CLOCK" 3 1094 "0x0000"
 D G "ADC_CLOCK_DIV_2" 3 1095 "0x0001"
@@ -1554,9 +1554,9 @@ F B "i2c_transfer_in" 3 1286 "int8(int8 stream,int8 address,*int8 rData,int8 rCo
 F N "spi_xfer" 3 1289 ""
 F B "spi_xfer" 3 1289 "int8()" `750 
 F N "spi_xfer" 3 1290 ""
-f G "spi_xfer" 3 1290 "int16(int8 data)" `751 
+f G "spi_xfer" 3 1290 "int16()" `751 
 F N "spi_xfer" 3 1291 ""
-f G "spi_xfer" 3 1291 "int32(int8 data)" `751 
+f G "spi_xfer" 3 1291 "int32()" `751 
 F N "spi_xfer" 3 1292 ""
 V L "data" 3 1292 "int8" `752 
 F B "spi_xfer" 3 1292 "int8(int8 data)" `751 
@@ -1636,18 +1636,18 @@ F B "spi_prewrite" 3 1311 "void(int8 ,int32 data)" `804
 F N "spi_xfer_in" 3 1312 ""
 F B "spi_xfer_in" 3 1312 "int8()" `807 
 F N "spi_xfer_in" 3 1313 ""
-f G "spi_xfer_in" 3 1313 "int16(int8 bits)" `808 
+f G "spi_xfer_in" 3 1313 "int16()" `808 
 F N "spi_xfer_in" 3 1314 ""
-f G "spi_xfer_in" 3 1314 "int32(int8 bits)" `808 
+f G "spi_xfer_in" 3 1314 "int32()" `808 
 F N "spi_xfer_in" 3 1315 ""
 V L "bits" 3 1315 "int8" `809 
 F B "spi_xfer_in" 3 1315 "int8(int8 bits)" `808 
 F N "spi_xfer_in" 3 1316 ""
 V L "bits" 3 1316 "int8" `811 
-f G "spi_xfer_in" 3 1316 "int16(int8 bits,int8 bits)" `810 
+f G "spi_xfer_in" 3 1316 "int16(int8 bits)" `810 
 F N "spi_xfer_in" 3 1317 ""
 V L "bits" 3 1317 "int8" `811 
-f G "spi_xfer_in" 3 1317 "int32(int8 bits,int8 bits)" `810 
+f G "spi_xfer_in" 3 1317 "int32(int8 bits)" `810 
 F N "spi_xfer_in" 3 1318 ""
 V L "stream" 3 1318 "int8" `811 
 V L "bits" 3 1318 "int8" `812 
@@ -1655,11 +1655,11 @@ F B "spi_xfer_in" 3 1318 "int8(int8 stream,int8 bits)" `810
 F N "spi_xfer_in" 3 1319 ""
 V L "stream" 3 1319 "int8" `811 
 V L "bits" 3 1319 "int8" `815 
-f G "spi_xfer_in" 3 1319 "int16(int8 stream,int8 bits,int16 count)" `813 
+f G "spi_xfer_in" 3 1319 "int16(int8 stream,int8 bits)" `813 
 F N "spi_xfer_in" 3 1320 ""
 V L "stream" 3 1320 "int8" `811 
 V L "bits" 3 1320 "int8" `815 
-f G "spi_xfer_in" 3 1320 "int32(int8 stream,int8 bits,int16 count)" `813 
+f G "spi_xfer_in" 3 1320 "int32(int8 stream,int8 bits)" `813 
 F N "spi_transfer" 3 1321 ""
 V L "wData" 3 1321 "*int8" `814 
 V L "rData" 3 1321 "*int8" `815 
@@ -1728,9 +1728,9 @@ F B "rtos_stats" 3 1341 "void(int8 task,*int8 stat)" `856  "#use timer() Prototy
 F N "get_ticks" 3 1344 ""
 F B "get_ticks" 3 1344 "int8()" `859 
 F N "get_ticks" 3 1345 ""
-f G "get_ticks" 3 1345 "int16(int8 stream)" `860 
+f G "get_ticks" 3 1345 "int16()" `860 
 F N "get_ticks" 3 1346 ""
-f G "get_ticks" 3 1346 "int32(int8 stream)" `860 
+f G "get_ticks" 3 1346 "int32()" `860 
 F N "get_ticks" 3 1347 ""
 V L "stream" 3 1347 "int8" `861 
 F B "get_ticks" 3 1347 "int8(int8 stream)" `860 
@@ -3063,7 +3063,7 @@ F G "lsb_array_to_int32" 31 28 "int32(*int8 buf,int8 index)" `1048
 F N "msb_array_to_int32" 31 36 ""
 V L "buf" 31 36 "*int8" `1539 
 V L "index" 31 36 "int8" `1540 
-F G "msb_array_to_int32" 31 37 "int32(*int8 buf,int8 index,int8 index,int32 value)" `1538 
+F G "msb_array_to_int32" 31 37 "int32(*int8 buf,int8 index,int8 index)" `1538 
 F N "int32_lsb_to_msb" 31 44 ""
 V L "value" 31 44 "int32" `1542 
 F G "int32_lsb_to_msb" 31 45 "int32(int32 value)" `1541 
@@ -3192,24 +3192,28 @@ V L "mode" 36 86 "uint8_t" `1281
 V L "hw_channel" 36 86 "uint8_t" `1282 
 V L "samplingRate" 36 86 "uint8_t" `1608 
 F G "execute_measurement" 36 87 "void(uint8_t mode,uint8_t hw_channel,uint8_t samplingRate)" `1280 
-C L "execute_measurement" 36 11 2 "FUNCTION"
-V L "strain_packet_num" 36 94 "uint16_t" `1612 
-V L "strain_data_idx" 36 95 "uint8_t" `1613 
-V L "strain_buffer" 36 96 "uint8_t[64]" `1614 
-C L "execute_measurement" 36 11 1 "FUNCTION"
-V L "temp_packet_num" 36 100 "uint16_t" `1615 
-V L "temp_data_idx" 36 101 "uint8_t" `1616 
-V L "temp_buffer" 36 102 "uint8_t[64]" `1617 
-C L "execute_measurement" 36 11 1 "FUNCTION"
-V L "step" 36 109 "uint16_t" `1618 
-C L "execute_measurement" 36 11 2 "FUNCTION"
-V L "strain_val" 36 115 "uint16_t" `1619 
-C L "execute_measurement" 36 11 2 "FUNCTION"
 C L "execute_measurement" 36 11 1 "FUNCTION"
 C L "execute_measurement" 36 11 1 "FUNCTION"
+C L "execute_measurement" 36 11 1 "FUNCTION"
+C L "execute_measurement" 36 11 1 "FUNCTION"
+C L "execute_measurement" 36 11 3 "FUNCTION"
+V L "strain_packet_num" 36 102 "uint16_t" `1612 
+V L "strain_data_idx" 36 103 "uint8_t" `1613 
+V L "strain_buffer" 36 104 "uint8_t[64]" `1614 
+C L "execute_measurement" 36 11 1 "FUNCTION"
+V L "temp_packet_num" 36 108 "uint16_t" `1615 
+V L "temp_data_idx" 36 109 "uint8_t" `1616 
+V L "temp_buffer" 36 110 "uint8_t[64]" `1617 
+C L "execute_measurement" 36 11 1 "FUNCTION"
+V L "step" 36 117 "uint16_t" `1618 
+C L "execute_measurement" 36 11 2 "FUNCTION"
+V L "strain_val" 36 123 "uint16_t" `1619 
+C L "execute_measurement" 36 11 2 "FUNCTION"
+C L "execute_measurement" 36 11 1 "FUNCTION"
+C L "execute_measurement" 36 11 1 "FUNCTION"
 C L "execute_measurement" 36 11 2 "FUNCTION"
 C L "execute_measurement" 36 11 2 "FUNCTION"
-V L "temp_val" 36 136 "uint16_t" `1620 
+V L "temp_val" 36 144 "uint16_t" `1620 
 C L "execute_measurement" 36 11 1 "FUNCTION"
 C L "execute_measurement" 36 11 1 "FUNCTION"
 C L "execute_measurement" 36 11 2 "FUNCTION"

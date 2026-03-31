@@ -1,6 +1,6 @@
 
-ROM used:   16912/131056 (13%)
-            16912/131056 (13%) including unused fragments
+ROM used:   16928/131056 (13%)
+            16928/131056 (13%) including unused fragments
 
             3.1 Average locations per line
             19.8 Average locations per statement
@@ -46,10 +46,10 @@ Lines Stmts  %   Files
   587   290  34  lib\device\mt25q.c
    60    15   2  lib\tool\calc_tools.c
    83    41   5  lib\tool\smf_queue.c
-  127    64   8  lib\communication\communication.c
+  127    64   7  lib\communication\communication.c
    17     3   0  lib\communication\communication_driver.c
-   81    47   6  lib\communication\mission_tools.c
-  306    71   8  cigs\core\measurement\son_tmp_strain.c
+   81    47   5  lib\communication\mission_tools.c
+  314    75   9  cigs\core\measurement\son_tmp_strain.c
    90    29   3  cigs\core\measurement\son_tmp_temp.c
    60    22   3  cigs\core\logging\son_tmp_piclog.c
    99    35   4  cigs\core\storage\son_tmp_smf.c
@@ -59,7 +59,7 @@ Lines Stmts  %   Files
    49    13   2  cigs\application\mission\son_tmp_mode_mission.c
   107    31   4  cigs\application\mission\son_tmp_mode_flash.c
 ----- -----
- 5476   853 Total
+ 5484   857 Total
 
 Page ROM  %  RAM    Vol Diff  Functions:
 ---- --- --- ---    --- ----  ----------
@@ -126,7 +126,7 @@ Page ROM  %  RAM    Vol Diff  Functions:
 0     88   0    0    290  1.8  io_init
 0     16   0    0             @const1602
 0     12   0    0             @const1603
-0    834   2  147   1912  9.8  execute_measurement
+0    850   3  147   2049  9.9  execute_measurement
 0     54   0    0             @const1605
 0     72   0    3             @DIV88
 0    170   1    2             @PRINTF_U_950
@@ -170,21 +170,21 @@ Page ROM  %  RAM    Vol Diff  Functions:
 0    114   0    4    280  4.3  execute_command
 0     28   0    0             @const1687
 0    382   1    6    666  6.1  execute_mission_sequence
-0     34   0    0    280  4.3  @const1689
+0     34   0    0             @const1689
 0     52   0    0             @const1694
-0     68   0    0    666  6.1  @const1695
+0     68   0    0             @const1695
 0     36   0    0             @const1696
 0     38   0    0     70  1.5  prepare_smf_transfer
 0     32   0    0             @const1697
 0     38   0    0     70  1.5  execute_smf_transfer
-0     32   0    0     70  1.5  @const1698
+0     32   0    0             @const1698
 0     58   0    0    123  2.0  permit_smf_transfer
-0     30   0    0     70  1.5  @const1699
+0     30   0    0             @const1699
 0     42   0    0             @const1700
 0    758   2   90   1630 13.1  execute_flash_dump
 0     34   0    0             @const1707
 0    116   0   14             @MUL3232
-0     14   0    0   1630 13.1  @const1716
+0     14   0    0             @const1716
 0     28   0    0             @const1717
 0     30   0    0             @const1719
 0     66   0    0             @const1720
@@ -192,7 +192,7 @@ Page ROM  %  RAM    Vol Diff  Functions:
 0   1792   5   24   2306  9.9  MAIN
 0     70   0    0             @const1725
 0     26   0    0             @const1726
-0     28   0    0   2271  9.9  @const1727
+0     28   0    0             @const1727
 0     10   0    0             @const1728
 0     10   0    0             @const1729
 0     38   0    0             @const1733
@@ -206,23 +206,23 @@ Page ROM  %  RAM    Vol Diff  Functions:
  Inline         0             @cinit1
 
 Program metrics:
-    Functions               46
-    Statements              853
-    Comments                1596
-    Volume (V)              52987
-    Difficulty (D)          255.5
-    Effort to implement (E) 13539745
-    Time to implement (T)   208 hours, 57 minutes
-    Est Delivered Bugs (B)  19
-    Cyclomatic Complexity   103
-    Maintainability (MI)    101
+    Functions               40
+    Statements              857
+    Comments                1603
+    Volume (V)              43762
+    Difficulty (D)          217.5
+    Effort to implement (E) 9518101
+    Time to implement (T)   146 hours, 53 minutes
+    Est Delivered Bugs (B)  15
+    Cyclomatic Complexity   89
+    Maintainability (MI)    66
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00004     6  0  
 00006-00006     0  2  
 00008-000BC   182  0  
-000BE-0FFFE  16724  48622  
+000BE-0FFFE  16740  48606  
 10000-1FFEE     0  65520  
 
 
