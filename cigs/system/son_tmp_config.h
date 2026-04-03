@@ -58,55 +58,55 @@
 // ==========================================
 
 // --- 応答・システム制御用 ---
-#define RES_MISSION_DONE            0x11
-#define REQ_POWER_OFF               0x30
+#define RES_MISSION_DONE             0x11
+#define REQ_POWER_OFF                0x30
 
 // --- PICF (Mission Flash) 関連 ---
-#define CMD_PICF_ERASE_ALL          0x80
-#define CMD_PICF_ERASE_1SECTOR      0x81
-#define CMD_PICF_ERASE_4K_SUBSECTOR 0x82
-#define CMD_PICF_ERASE_64K_SUBSECTOR 0x83
-#define CMD_PICF_WRITE_DEMO         0x84
-#define CMD_PICF_WRITE_4K_SUBSECTOR 0x85
-#define CMD_PICF_READ               0x86
-#define CMD_PICF_READ_ADDRESS       0x87
-#define CMD_PICF_ERASE_AND_RESET    0x88
-#define CMD_PICF_READ_AREA          0x89
-#define CMD_PICF_RESET_ADDRESS      0x8F
+#define CMD_PICF_ERASE_ALL           0x80
+#define CMD_PICF_ERASE_1SECTOR       0x81
+#define CMD_PICF_ERASE_4K_SUBSECTOR  0x82
+#define CMD_PICF_ERASE_32K_SUBSECTOR 0x83
+#define CMD_PICF_WRITE_DEMO          0x84
+#define CMD_PICF_WRITE_4K_SUBSECTOR  0x85
+#define CMD_PICF_READ                0x86
+#define CMD_PICF_READ_ADDRESS        0x87
+#define CMD_PICF_ERASE_AND_RESET     0x88
+#define CMD_PICF_READ_AREA           0x89
+#define CMD_PICF_RESET_ADDRESS       0x8F
 
 // --- SMF (CPLD Flash) 関連 ---
-#define CMD_SMF_COPY                0x90
-#define CMD_SMF_READ                0x91
-#define CMD_SMF_ERASE               0x92
-#define CMD_SMF_COPY_FORCE          0x93
-#define CMD_SMF_READ_FORCE          0x94
-#define CMD_SMF_ERASE_FORCE         0x95
+#define CMD_SMF_COPY                 0x90
+#define CMD_SMF_READ                 0x91
+#define CMD_SMF_ERASE                0x92
+#define CMD_SMF_COPY_FORCE           0x93
+#define CMD_SMF_READ_FORCE           0x94
+#define CMD_SMF_ERASE_FORCE          0x95
 
 // --- 計測 (Strain) 関連 ---
-#define CMD_STR                     0xA0
-#define CMD_STR_DEBUG               0xA1
-#define CMD_STR_PRINT               0xA2
+#define CMD_STR                      0xA0
+#define CMD_STR_DEBUG                0xA1
+#define CMD_STR_PRINT                0xA2
 
 // --- その他 ---
-#define CMD_RETURN_TIME             0xB0
+#define CMD_RETURN_TIME              0xB0
 
 
-#define SAMP_RATE_10MS          0x01  // 0.01秒
-#define SAMP_RATE_50MS          0x02  // 0.05秒
-#define SAMP_RATE_100MS         0x03  // 0.10秒
-#define SAMP_RATE_500MS         0x04  // 0.50秒
-#define SAMP_RATE_1000MS        0x05  // 1.00秒
-#define SAMP_RATE_5000MS        0x06  // 5.00秒
-#define SAMP_RATE_2432MS        0x07  // 2.432秒 (0.25周回連続計測)
-#define SAMP_RATE_4865MS        0x08  // 4.865秒 (0.5周回連続計測)
-#define SAMP_RATE_9730MS        0x09  // 9.730秒 (1周回連続計測)
+#define SAMP_RATE_10MS               0x01  // 0.01秒
+#define SAMP_RATE_50MS               0x02  // 0.05秒
+#define SAMP_RATE_100MS              0x03  // 0.10秒
+#define SAMP_RATE_500MS              0x04  // 0.50秒
+#define SAMP_RATE_1000MS             0x05  // 1.00秒
+#define SAMP_RATE_5000MS             0x06  // 5.00秒
+#define SAMP_RATE_2432MS             0x07  // 2.432秒 (0.25周回連続計測)
+#define SAMP_RATE_4865MS             0x08  // 4.865秒 (0.5周回連続計測)
+#define SAMP_RATE_9730MS             0x09  // 9.730秒 (1周回連続計測)
 
 // ==========================================
 // 3. データフォーマット・バッファ定義
 // ==========================================
-#define PACKET_SIZE             64
-#define FLASH_PAGE_SIZE         256
-#define PACKETS_PER_PAGE        4
-#define SMF_TRANSFER_PACKETS    15
+#define PACKET_SIZE                  64
+#define FLASH_PAGE_SIZE              256
+#define PACKETS_PER_PAGE             4
+#define SMF_TRANSFER_PACKETS         15
 
 #endif // son_tmp_CONFIG_H

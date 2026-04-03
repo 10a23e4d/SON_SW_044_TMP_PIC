@@ -55,94 +55,176 @@ int1 execute_command(Command* cmd)
         case CMD_PICF_READ:
         {
             fprintf(PC, "[CMD] PICF_READ (0x86)\r\n");
-            execute_flash_dump();
+
+            uint32_t address = ((uint32_t)cmd->content[1] << 24) |
+                               ((uint32_t)cmd->content[2] << 16) |
+                               ((uint32_t)cmd->content[3] << 8)  |
+                                (uint32_t)cmd->content[4];
+
+            uint16_t packet_num = ((uint16_t)cmd->content[6] << 8) | (uint16_t)cmd->content[7];
+
+            execute_picf_read(address, packet_num);
             break;
         }
         case CMD_PICF_ERASE_ALL:
         {
             fprintf(PC, "[CMD] PICF_ERASE_ALL (0x80)\r\n");
+            execute_picf_erase_all();
             break;
         }
         case CMD_PICF_ERASE_1SECTOR:
         {
             fprintf(PC, "[CMD] PICF_ERASE_1SECTOR (0x81)\r\n");
+
+            uint32_t address = ((uint32_t)cmd->content[1] << 24) |
+                               ((uint32_t)cmd->content[2] << 16) |
+                               ((uint32_t)cmd->content[3] << 8)  |
+                                (uint32_t)cmd->content[4];
+
+            uint8_t sector_num = cmd->content[7]; // Arg7
+
+            execute_picf_erase_1sector(address, sector_num);
             break;
         }
         case CMD_PICF_ERASE_4K_SUBSECTOR:
         {
             fprintf(PC, "[CMD] PICF_ERASE_4K_SUBSECTOR (0x82)\r\n");
+
+            uint32_t address = ((uint32_t)cmd->content[1] << 24) |
+                               ((uint32_t)cmd->content[2] << 16) |
+                               ((uint32_t)cmd->content[3] << 8)  |
+                                (uint32_t)cmd->content[4];
+
+            uint8_t sector_num = cmd->content[7];
+
+            execute_picf_erase_4k(address, sector_num);
             break;
         }
-        case CMD_PICF_ERASE_64K_SUBSECTOR:
+        case CMD_PICF_ERASE_32K_SUBSECTOR:
         {
-            fprintf(PC, "[CMD] PICF_ERASE_64K_SUBSECTOR (0x83)\r\n");
+            fprintf(PC, "[CMD] PICF_ERASE_32K_SUBSECTOR (0x83)\r\n");
+
+            uint32_t address = ((uint32_t)cmd->content[1] << 24) |
+                               ((uint32_t)cmd->content[2] << 16) |
+                               ((uint32_t)cmd->content[3] << 8)  |
+                                (uint32_t)cmd->content[4];
+
+            uint8_t sector_num = cmd->content[7];
+
+            execute_picf_erase_32k(address, sector_num);
             break;
         }
         case CMD_PICF_WRITE_DEMO:
         {
             fprintf(PC, "[CMD] PICF_WRITE_DEMO (0x84)\r\n");
+
+            uint32_t address = ((uint32_t)cmd->content[1] << 24) |
+                               ((uint32_t)cmd->content[2] << 16) |
+                               ((uint32_t)cmd->content[3] << 8)  |
+                                (uint32_t)cmd->content[4];
+
+            uint16_t packet_num = ((uint16_t)cmd->content[6] << 8) | (uint16_t)cmd->content[7];
+
+            execute_picf_write_demo(address, packet_num);
             break;
         }
         case CMD_PICF_WRITE_4K_SUBSECTOR:
         {
             fprintf(PC, "[CMD] PICF_WRITE_4K_SUBSECTOR (0x85)\r\n");
+
+            uint32_t address = ((uint32_t)cmd->content[1] << 24) |
+                               ((uint32_t)cmd->content[2] << 16) |
+                               ((uint32_t)cmd->content[3] << 8)  |
+                                (uint32_t)cmd->content[4];
+
+            execute_picf_write_4k(address);
             break;
         }
         case CMD_PICF_READ_ADDRESS:
         {
             fprintf(PC, "[CMD] PICF_READ_ADDRESS (0x87)\r\n");
-            print_flash_status();
+            execute_picf_read_address();
             break;
         }
         case CMD_PICF_ERASE_AND_RESET:
         {
             fprintf(PC, "[CMD] PICF_ERASE_AND_RESET (0x88)\r\n");
+            execute_picf_erase_and_reset();
             break;
         }
         case CMD_PICF_READ_AREA:
         {
             fprintf(PC, "[CMD] PICF_READ_AREA (0x89)\r\n");
+
+            uint8_t area = cmd->content[1];
+            uint8_t start_packet = cmd->content[2];
+            uint8_t request_packet = cmd->content[3];
+
+            execute_picf_read_area(area, start_packet, request_packet);
             break;
         }
         case CMD_PICF_RESET_ADDRESS:
         {
             fprintf(PC, "[CMD] PICF_RESET_ADDRESS (0x8F)\r\n");
+            execute_picf_reset_address();
             break;
         }
 
         // ----------------------------------------------------
-        // SMF (CPLD Flash) コマンド
+        // SMF (CPLD Flash) コマンド (0x90 - 0x95)
         // ----------------------------------------------------
         case CMD_SMF_COPY:
+        case CMD_SMF_COPY_FORCE:
         {
-            fprintf(PC, "[CMD] SMF_COPY (0x90)\r\n");
-            status = COPYING;
-            prepare_smf_transfer();
+            // FORCE版かどうかを判定
+            bool is_force = (cmd_id == CMD_SMF_COPY_FORCE);
+            fprintf(PC, "[CMD] SMF_COPY%s (0x%02X)\r\n", is_force ? "_FORCE" : "", cmd_id);
+
+            uint32_t address = ((uint32_t)cmd->content[1] << 24) |
+                               ((uint32_t)cmd->content[2] << 16) |
+                               ((uint32_t)cmd->content[3] << 8)  |
+                                (uint32_t)cmd->content[4];
+
+            uint16_t packet_num = ((uint16_t)cmd->content[6] << 8) | (uint16_t)cmd->content[7];
+
+            execute_smf_direct_copy(address, packet_num, is_force);
             break;
         }
         case CMD_SMF_READ:
+        case CMD_SMF_READ_FORCE:
         {
-            fprintf(PC, "[CMD] SMF_READ (0x91)\r\n");
+            bool is_force = (cmd_id == CMD_SMF_READ_FORCE);
+            fprintf(PC, "[CMD] SMF_READ%s (0x%02X)\r\n", is_force ? "_FORCE" : "", cmd_id);
+
+            uint32_t address = ((uint32_t)cmd->content[1] << 24) |
+                               ((uint32_t)cmd->content[2] << 16) |
+                               ((uint32_t)cmd->content[3] << 8)  |
+                                (uint32_t)cmd->content[4];
+
+            uint16_t packet_num = ((uint16_t)cmd->content[6] << 8) | (uint16_t)cmd->content[7];
+
+            execute_smf_read(address, packet_num, is_force);
             break;
         }
         case CMD_SMF_ERASE:
         {
-            fprintf(PC, "[CMD] SMF_ERASE (0x92)\r\n");
-            break;
-        }
-        case CMD_SMF_COPY_FORCE:
-        {
-            fprintf(PC, "[CMD] SMF_COPY_FORCE (0x93)\r\n");
-            break;
-        }
-        case CMD_SMF_READ_FORCE:
-        {
-            fprintf(PC, "[CMD] SMF_READ_FORCE (0x94)\r\n");
+            bool is_force = (cmd_id == CMD_SMF_ERASE_FORCE);
+            fprintf(PC, "[CMD] SMF_ERASE%s (0x%02X)\r\n", is_force ? "_FORCE" : "", cmd_id);
+
+            uint32_t address = ((uint32_t)cmd->content[1] << 24) |
+                               ((uint32_t)cmd->content[2] << 16) |
+                               ((uint32_t)cmd->content[3] << 8)  |
+                                (uint32_t)cmd->content[4];
+
+            uint8_t sector_num = cmd->content[7]; // Arg7
+
+            execute_smf_erase(address, sector_num, is_force);
             break;
         }
         case CMD_SMF_ERASE_FORCE:
         {
-            fprintf(PC, "[CMD] SMF_ERASE_FORCE (0x95)\r\n");
+            fprintf(PC, "[CMD] SMF_ERASE_FORCE (0x%02X)\r\n", cmd_id);
+            execute_smf_erase_force();
             break;
         }
 
@@ -152,12 +234,16 @@ int1 execute_command(Command* cmd)
         case CMD_RETURN_TIME:
         {
             fprintf(PC, "[CMD] RETURN_TIME (0xB0)\r\n");
+
+            // システムの現在時刻（秒）を取得
+            uint32_t current_time = get_current_sec();
+
+            fprintf(PC, "Current Time: %lu sec\r\n", current_time);
+
+            // ※将来的には、ここでBOSSに対して時刻データを送信する関数を呼び出します
+            // send_time_to_boss(current_time);
+
             break;
-        }
-        case REQ_POWER_OFF:
-        {
-            fprintf(PC, "[CMD] POWER_OFF (0x30)\r\n");
-            status = IDLE;
             break;
         }
         default:

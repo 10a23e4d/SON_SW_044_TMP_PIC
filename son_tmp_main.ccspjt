@@ -9,7 +9,7 @@ enabled=0
 chip=1
 D1=
 V1=
-buildcount=25
+buildcount=26
 
 [fileformats]
 forcecoff=0
@@ -62,26 +62,26 @@ Fixed=
 [Opened Files]
 1=son_tmp_main.c
 t1=1
-Count=7
+Count=8
 2=cigs\core\measurement\son_tmp_strain.c
 t2=1
 3=lib\device\mt25q.h
-t3=15
+t3=1
 4=cigs\system\son_tmp_config.h
-t4=61
+t4=1
 5=lib\device\mt25q.c
-t5=306
+t5=1
 6=cigs\application\mission\son_tmp_excute_mission.c
 t6=1
 7=cigs\application\mission\son_tmp_mode_mission.c
 t7=1
-8=cigs\application\mission\son_tmp_excute_mission.c
+8=cigs\application\mission\son_tmp_mode_flash.c
 t8=1
 9=..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F67J94.h
 t9=1
 
 [ProjectLog]
-Days=5
+Days=6
 D1=04-03-2026
 D1_L=3
 D1_L1=[55141]Started Editing.
@@ -128,7 +128,7 @@ D4_L=2
 D4_L1=[39988]Project Opened.
 D4_L2=[43627]Project Closed.
 D5=31-03-2026
-D5_L=7
+D5_L=8
 D5_L1=[39275]Project Opened.
 D5_L2=[39323]Project Closed.
 D5_L3=[39323]Project Opened.
@@ -136,6 +136,13 @@ D5_L4=[49352]Project Closed.
 D5_L5=[50256]Project Opened.
 D5_L6=[50272]Project Closed.
 D5_L7=[50272]Project Opened.
+D5_L8=[57557]Project Closed.
+D6=03-04-2026
+D6_L=4
+D6_L1=[42286]Project Opened.
+D6_L2=[42296]Project Closed.
+D6_L3=[42296]Project Opened.
+D6_L4=[44519]Project Closed.
 [build\son_tmp_main.c]
 Type=4
 [Units]
