@@ -12,7 +12,7 @@ extern void subsector_4kByte_erase(Flash flash_stream, unsigned int32 erase_addr
 Flash_t piclog_data = {0x01, 0, 0, 0, 0};
 Flash_t environment_data = {0x02, 0, 0, 0, 0};
 Flash_t iv_header = {0x03, 0, 0, 0, 0};
-Flash_t iv_data = {0x04, 0, 0, 0, 0};
+Flash_t str_data = {0x04, 0, 0, 0, 0};
 
 void misf_init()
 {
@@ -63,7 +63,7 @@ void misf_init()
         piclog_data = flash_data.packet.payload.logdata.piclog;
         environment_data = flash_data.packet.payload.logdata.environment;
         iv_header = flash_data.packet.payload.logdata.iv_header;
-        iv_data = flash_data.packet.payload.logdata.iv_data;
+        str_data = flash_data.packet.payload.logdata.str_data;
         fprintf(PC, "\tData table loaded from Flash.\r\n");
     }
     else
@@ -83,7 +83,7 @@ FlashData_t make_flash_data_table()
     flash_data.packet.payload.logdata.piclog = piclog_data;
     flash_data.packet.payload.logdata.environment = environment_data;
     flash_data.packet.payload.logdata.iv_header = iv_header;
-    flash_data.packet.payload.logdata.iv_data = iv_data;
+    flash_data.packet.payload.logdata.str_data = str_data;
 
     flash_data.packet.crc = calc_crc8(flash_data.packet.payload.reserve, PACKET_SIZE - 1);
 
@@ -118,10 +118,10 @@ MisfStatusStruct get_misf_status_struct(uint8_t mission_id)
         mis_struct.start_address = MISF_CIGS_ENVIRO_START;
         mis_struct.end_address   = MISF_CIGS_ENVIRO_END;
     }
-    else if (mission_id == CIGS_IV_DATA)
+    else if (mission_id == CIGS_str_data)
     {
-        mis_struct.start_address = MISF_CIGS_IV_DATA_START;
-        mis_struct.end_address   = MISF_CIGS_IV_DATA_END;
+        mis_struct.start_address = MISF_CIGS_str_data_START;
+        mis_struct.end_address   = MISF_CIGS_str_data_END;
     }
     return mis_struct;
 }
@@ -145,10 +145,10 @@ MisfWriteStruct get_misf_write_struct(uint8_t mission_id)
         mis_write_struct.start_address = MISF_CIGS_ENVIRO_START + environment_data.used_counter - environment_data.uncopied_counter;
         mis_write_struct.size = environment_data.uncopied_counter;
     }
-    else if (mission_id == CIGS_IV_DATA)
+    else if (mission_id == CIGS_str_data)
     {
-        mis_write_struct.start_address = MISF_CIGS_IV_DATA_START + iv_data.used_counter - iv_data.uncopied_counter;
-        mis_write_struct.size = iv_data.uncopied_counter;
+        mis_write_struct.start_address = MISF_CIGS_str_data_START + str_data.used_counter - str_data.uncopied_counter;
+        mis_write_struct.size = str_data.uncopied_counter;
     }
 
     return mis_write_struct;
@@ -159,6 +159,6 @@ void print_flash_status()
     fprintf(PC, "--- Flash Status ---\r\n");
     fprintf(PC, "PICLOG  Used: %lu, Uncopied: %lu\r\n", piclog_data.used_counter, piclog_data.uncopied_counter);
     fprintf(PC, "ENVIRO  Used: %lu, Uncopied: %lu\r\n", environment_data.used_counter, environment_data.uncopied_counter);
-    fprintf(PC, "IV DATA Used: %lu, Uncopied: %lu\r\n", iv_data.used_counter, iv_data.uncopied_counter);
+    fprintf(PC, "IV DATA Used: %lu, Uncopied: %lu\r\n", str_data.used_counter, str_data.uncopied_counter);
     fprintf(PC, "--------------------\r\n");
 }

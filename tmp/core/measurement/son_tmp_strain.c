@@ -186,11 +186,11 @@ void execute_measurement(uint8_t mode, uint8_t hw_channel, uint8_t samplingRate)
             if (mode == 0x01)
             {
                 // STR (通常ミッション): Flashへ書き込み
-                uint32_t flash_addr = MISF_CIGS_IV_DATA_START + iv_data.used_counter;
+                uint32_t flash_addr = MISF_TMP_STR_DATA_START + str_data.used_counter;
                 write_data_bytes(mis_fm, flash_addr, (int8*)packet_buffer, PACKET_SIZE);
 
-                iv_data.used_counter += PACKET_SIZE;
-                iv_data.uncopied_counter += PACKET_SIZE;
+                str_data.used_counter += PACKET_SIZE;
+                str_data.uncopied_counter += PACKET_SIZE;
             }
             else if (mode == 0x02)
             {
@@ -240,11 +240,11 @@ void execute_measurement(uint8_t mode, uint8_t hw_channel, uint8_t samplingRate)
         // ★分岐: 端数分の処理も mode に応じて分ける
         if (mode == 0x01)
         {
-            uint32_t flash_addr = MISF_CIGS_IV_DATA_START + iv_data.used_counter;
+            uint32_t flash_addr = MISF_TMP_str_data_START + str_data.used_counter;
             write_data_bytes(mis_fm, flash_addr, (int8*)packet_buffer, PACKET_SIZE);
 
-            iv_data.used_counter += PACKET_SIZE;
-            iv_data.uncopied_counter += PACKET_SIZE;
+            str_data.used_counter += PACKET_SIZE;
+            str_data.uncopied_counter += PACKET_SIZE;
         }
         else if (mode == 0x02)
         {

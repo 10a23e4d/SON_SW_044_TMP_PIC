@@ -17,18 +17,14 @@
 
 #define SECTOR_64K_BYTE  0x10000
 
-#define MISF_CIGS_DATA_TABLE_SIZE 64
+#define MISF_TMP_DATA_TABLE_SIZE 64
 
-#define MISF_CIGS_DATA_TABLE_START 0x00000000
-#define MISF_CIGS_DATA_TABLE_END   0x00000FFF
-#define MISF_CIGS_PICLOG_START     0x00010000
-#define MISF_CIGS_PICLOG_END       0x00140FFF
-#define MISF_CIGS_ENVIRO_START     0x00281000
-#define MISF_CIGS_ENVIRO_END       0x00320FFF
-#define MISF_CIGS_IV_HEADER_START  0x00721000
-#define MISF_CIGS_IV_HEADER_END    0x007C0FFF
-#define MISF_CIGS_IV_DATA_START    0x007C1000
-#define MISF_CIGS_IV_DATA_END      0x00D00000
+#define MISF_TMP_DATA_TABLE_START 0x00000000
+#define MISF_TMP_DATA_TABLE_END   0x0000FFFF
+#define MISF_TMP_PICLOG_START     0x00010000
+#define MISF_TMP_PICLOG_END       0x001FFFFF
+#define MISF_TMP_STR_DATA_START   0x00200000
+#define MISF_TMP_STR_DATA_END     0x00FFFFFF
 
 // ============================================================================
 // データ構造体定義
@@ -56,7 +52,7 @@ typedef union
                 Flash_t piclog;
                 Flash_t environment;
                 Flash_t iv_header;
-                Flash_t iv_data;
+                Flash_t str_data;
             } logdata;
             uint8_t reserve[63];
         } payload;
@@ -83,7 +79,7 @@ typedef struct
 extern Flash_t piclog_data;
 extern Flash_t environment_data;
 extern Flash_t iv_header;
-extern Flash_t iv_data;
+extern Flash_t str_data;
 
 // ============================================================================
 // 外部公開関数プロトタイプ

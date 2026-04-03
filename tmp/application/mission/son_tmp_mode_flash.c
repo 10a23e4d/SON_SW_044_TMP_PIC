@@ -126,13 +126,12 @@ void execute_picf_reset_address(void)
 {
     fprintf(PC, "\r\n[PICF] Resetting Address Info...\r\n");
 
-    // 全てのカウンタをゼロに戻す
+    // ★修正: 新しい変数構成に合わせて2つだけをゼロにする
     piclog_data.used_counter = 0;
     piclog_data.uncopied_counter = 0;
-    environment_data.used_counter = 0;
-    environment_data.uncopied_counter = 0;
-    iv_data.used_counter = 0;
-    iv_data.uncopied_counter = 0;
+
+    str_data.used_counter = 0;
+    str_data.uncopied_counter = 0;
 
     // ゼロにした状態をFlashに保存
     write_misf_address_area();
@@ -337,6 +336,29 @@ void execute_picf_read_area(uint8_t area, uint8_t start_packet, uint8_t request_
     execute_picf_read(start_address, (uint16_t)request_packet);
 }
 
+// ----------------------------------------------------
+// (内部用) PICFのアドレスからSMFの書き込みアドレスを算出する
+// ----------------------------------------------------
+uint32_t calculate_smf_write_address(uint32_t picf_address)
+{
+    // TODO: mmj_smf_memorymap.h が完成したら、以下のダミー定数を正式なものに差し替える
+    const uint32_t DUMMY_SMF_STR_DATA_START = 0x00100000;
+    const uint32_t DUMMY_SMF_PICLOG_START   = 0x00200000;
+
+    if (picf_address >= MISF_TMP_STR_DATA_START && picf_address <= MISF_TMP_STR_DATA_END)
+    {
+        uint32_t offset = picf_address - MISF_TMP_STR_DATA_START;
+        return DUMMY_SMF_STR_DATA_START + offset;
+    }
+    // PICLOG領域の判定
+    else if (picf_address >= MISF_TMP_PICLOG_START && picf_address <= MISF_TMP_PICLOG_END)
+    {
+        uint32_t offset = picf_address - MISF_TMP_PICLOG_START;
+        return DUMMY_SMF_PICLOG_START + offset;
+    }
+
+    return picf_address;
+}
 
 // ----------------------------------------------------
 // SMF: ダイレクトコピー (PICF -> SMF) (0x90, 0x93)
@@ -344,22 +366,32 @@ void execute_picf_read_area(uint8_t area, uint8_t start_packet, uint8_t request_
 void execute_smf_direct_copy(uint32_t address, uint16_t packet_num, bool is_force)
 {
     uint8_t buffer[PACKET_SIZE];
-    uint32_t current_addr = address;
+
+    // 読み出しアドレスと書き込みアドレスを完全に分離する
+    uint32_t read_addr = address;
+
+    // ★追加: 読み出しアドレスから、SMF側の書き込み先頭アドレスを計算
+    uint32_t write_addr = calculate_smf_write_address(address);
 
     fprintf(PC, "\r\n--- SMF Direct Copy (PICF -> SMF) ---\r\n");
-    fprintf(PC, "Start Addr: 0x%08LX, Packets: %lu, Force: %u\r\n", address, (uint32_t)packet_num, is_force);
+    fprintf(PC, "Read Addr : 0x%08LX\r\n", read_addr);
+    fprintf(PC, "Write Addr: 0x%08LX\r\n", write_addr);
+    fprintf(PC, "Packets   : %lu, Force: %u\r\n", (uint32_t)packet_num, is_force);
 
     for (uint16_t p = 0; p < packet_num; p++)
     {
-        // 1. PICF からデータを読み出し
-        read_data_bytes(mis_fm, current_addr, (int8*)buffer, PACKET_SIZE);
+        // 1. PICF (read_addr) から読み出し
+        read_data_bytes(mis_fm, read_addr, (int8*)buffer, PACKET_SIZE);
 
-        // 2. SMF(MT25QL01GBBB) へデータを書き込み
-        write_data_bytes(smf, current_addr, (int8*)buffer, PACKET_SIZE);
+        // 2. SMF (write_addr) へ書き込み
+        write_data_bytes(smf, write_addr, (int8*)buffer, PACKET_SIZE);
 
-        fprintf(PC, "Copied Packet [%lu] at Addr: 0x%08LX\r\n", (uint32_t)(p+1), current_addr);
+        fprintf(PC, "Copied Packet [%lu] 0x%08LX -> 0x%08LX\r\n", (uint32_t)(p+1), read_addr, write_addr);
 
-        current_addr += PACKET_SIZE;
+        // アドレスをそれぞれ進める
+        read_addr += PACKET_SIZE;
+        write_addr += PACKET_SIZE;
+
         delay_ms(5);
     }
     fprintf(PC, "--- SMF Copy Complete ---\r\n");

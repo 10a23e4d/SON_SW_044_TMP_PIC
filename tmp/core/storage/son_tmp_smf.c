@@ -15,22 +15,22 @@ static uint32_t current_transfer_size = 0;
 void cigs_smf_prepare(void)
 {
     // 例として、IVデータ（温度データ含む）の未コピー分を転送対象とする
-    if (iv_data.uncopied_counter > 0)
+    if (str_data.uncopied_counter > 0)
     {
         // コピー開始アドレスの計算 (使用済み量から未コピー量を引いた場所が先頭)
-        current_transfer_address = MISF_CIGS_IV_DATA_START + iv_data.used_counter - iv_data.uncopied_counter;
+        current_transfer_address = MISF_TMP_STR_DATA_START + str_data.used_counter - str_data.uncopied_counter;
 
         // 最大15パケット分（64Byte × 15 = 960Byte）を1回の転送サイズとする
         uint32_t max_transfer_bytes = PACKET_SIZE * SMF_TRANSFER_PACKETS;
 
-        if (iv_data.uncopied_counter >= max_transfer_bytes)
+        if (str_data.uncopied_counter >= max_transfer_bytes)
         {
             current_transfer_size = max_transfer_bytes;
         }
         else
         {
             // 残りが15パケット未満なら、ある分だけ転送する
-            current_transfer_size = iv_data.uncopied_counter;
+            current_transfer_size = str_data.uncopied_counter;
         }
 
         fprintf(PC, "\t[SMF] Prepare: Addr=0x%08lX, Size=%lu bytes\r\n", current_transfer_address, current_transfer_size);
@@ -87,7 +87,7 @@ void cigs_smf_permit(void)
     if (current_transfer_size > 0)
     {
         // 転送が成功したので、未コピーカウンタを減算する
-        iv_data.uncopied_counter -= current_transfer_size;
+        str_data.uncopied_counter -= current_transfer_size;
         current_transfer_size = 0;
 
         // 更新されたカウンタ情報をFlashのアドレス管理領域に保存する
